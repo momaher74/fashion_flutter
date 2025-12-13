@@ -1,0 +1,66 @@
+import 'package:fashion_flutter/core/models/product_model.dart';
+import 'package:flutter/widgets.dart';
+
+const size16 = 16.0;
+const size17 = 17.0;
+const size18 = 18.0;
+const size19 = 19.0;
+const size20 = 20.0;
+const size21 = 21.0;
+const size22 = 22.0;
+const size23 = 23.0;
+const size24 = 24.0;
+const size25 = 25.0;
+const size26 = 26.0;
+const size27 = 27.0;
+const size28 = 28.0;
+const size29 = 29.0;
+const size30 = 30.0;
+
+
+const themeKey = 'themeMode';
+const langKey = 'lang';
+
+const FontWeight bold = FontWeight.bold ; 
+const FontWeight normal = FontWeight.normal ; 
+
+
+const List<String> productImages = [
+  "https://res.cloudinary.com/djfeplrup/image/upload/v1765583786/assets/shutterstock_1781009285_1_ttdh8c.png" , 
+"https://res.cloudinary.com/djfeplrup/image/upload/v1765583726/assets/image_55_v5zjiy.png" ,
+"https://res.cloudinary.com/djfeplrup/image/upload/v1765583714/assets/image_84_wbmdup.png" , 
+"https://res.cloudinary.com/djfeplrup/image/upload/v1765583430/assets/fast-fashion-concept-with-man-clothing-store_oag3vs.jpg" , 
+] ;
+
+
+
+final List<ProductModel> products = [
+  ProductModel(
+    id: '1',
+    name: 'Stylish Jacket',
+    description: 'A trendy jacket for all seasons.',
+    price: 59.99,
+    imageUrl: productImages[0],
+  ),
+   ProductModel(
+    id: '2',
+    name: 'Casual Shirt',
+    description: 'Perfect for everyday wear.',
+    price: 29.99,
+    imageUrl: productImages[1],
+  ),
+   ProductModel(
+    id: '3',
+    name: 'Elegant Dress',
+    description: 'Ideal for special occasions.',
+    price: 79.99,
+    imageUrl: productImages[2],
+  ),
+   ProductModel(
+    id: '4',
+    name: 'Comfortable Jeans',
+    description: 'Stylish and comfortable denim jeans.',
+    price: 49.99,
+    imageUrl: productImages[3],
+  ),
+];
