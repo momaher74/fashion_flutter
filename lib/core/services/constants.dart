@@ -29,7 +29,8 @@ const List<String> productImages = [
   "https://res.cloudinary.com/djfeplrup/image/upload/v1765583786/assets/shutterstock_1781009285_1_ttdh8c.png" , 
 "https://res.cloudinary.com/djfeplrup/image/upload/v1765583726/assets/image_55_v5zjiy.png" ,
 "https://res.cloudinary.com/djfeplrup/image/upload/v1765583714/assets/image_84_wbmdup.png" , 
-"https://res.cloudinary.com/djfeplrup/image/upload/v1765583430/assets/fast-fashion-concept-with-man-clothing-store_oag3vs.jpg" , 
+"https://res.cloudinary.com/djfeplrup/image/upload/v1765583430/assets/fast-fashion-concept-with-man-clothing-store_oag3vs.jpg" ,
+"https://res.cloudinary.com/djfeplrup/image/upload/v1765653347/image_64_vupi4b.png" ,  
 ] ;
 
 
@@ -62,5 +63,13 @@ final List<ProductModel> products = [
     description: 'Stylish and comfortable denim jeans.',
     price: 49.99,
     imageUrl: productImages[3],
+  ),
+
+     ProductModel(
+    id: '5',
+    name: 'Top',
+    description: 'Stylish and comfortable denim jeans.',
+    price: 49.99,
+    imageUrl: productImages[4],
   ),
 ];

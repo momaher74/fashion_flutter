@@ -2,6 +2,7 @@ import 'package:fashion_flutter/core/models/product_model.dart';
 import 'package:fashion_flutter/core/services/constants.dart';
 import 'package:fashion_flutter/core/widgets/cached_network_image.dart';
 import 'package:fashion_flutter/core/widgets/custom_text_widget.dart';
+import 'package:fashion_flutter/core/widgets/show_all_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -10,15 +11,21 @@ class ProductsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 230,
-      child: ListView.builder(
-        itemBuilder: (context, index) {
-          return ProductItem(product: products[index]);
-        },
-        itemCount: products.length,
-        scrollDirection: Axis.horizontal,
-      ),
+    return Column(
+      spacing: 20,
+      children: [
+        ShowAllWidget(title: "Products"),
+        SizedBox(
+          height: 230,
+          child: ListView.builder(
+            itemBuilder: (context, index) {
+              return ProductItem(product: products[index]);
+            },
+            itemCount: products.length,
+            scrollDirection: Axis.horizontal,
+          ),
+        ),
+      ],
     );
   }
 }
@@ -43,10 +50,22 @@ class ProductItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
 
-          Gap(5), 
+          Gap(5),
 
-         CustomText(product.name, fontSize: 14, maxLines: 1, overflow: TextOverflow.ellipsis , fontWeight: FontWeight.w600,),
-         CustomText(product.price.toString(), fontSize: 16, maxLines: 1, overflow: TextOverflow.ellipsis , fontWeight: bold,),
+          CustomText(
+            product.name,
+            fontSize: 14,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            fontWeight: FontWeight.w600,
+          ),
+          CustomText(
+            product.price.toString(),
+            fontSize: 16,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            fontWeight: bold,
+          ),
         ],
       ),
     );
