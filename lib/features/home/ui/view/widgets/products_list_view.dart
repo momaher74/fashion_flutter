@@ -6,6 +6,8 @@ import 'package:fashion_flutter/core/widgets/show_all_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
+import '../../../../../core/widgets/product_item_widget.dart';
+
 class ProductsListView extends StatelessWidget {
   const ProductsListView({super.key});
 
@@ -26,48 +28,6 @@ class ProductsListView extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-class ProductItem extends StatelessWidget {
-  const ProductItem({super.key, required this.product});
-  final ProductModel product;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 125,
-      margin: const EdgeInsets.symmetric(horizontal: 8),
-
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomCachedImage(
-            imageUrl: product.imageUrl,
-            height: 170,
-            width: double.infinity,
-            borderRadius: BorderRadius.circular(10),
-          ),
-
-          Gap(5),
-
-          CustomText(
-            product.name,
-            fontSize: 14,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            fontWeight: FontWeight.w600,
-          ),
-          CustomText(
-            product.price.toString(),
-            fontSize: 16,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            fontWeight: bold,
-          ),
-        ],
-      ),
     );
   }
 }

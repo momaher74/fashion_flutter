@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class SharedAppBar extends StatelessWidget {
-  const SharedAppBar({super.key});
+  const SharedAppBar({super.key, required this.title});
+  final String title ;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class SharedAppBar extends StatelessWidget {
           ),
           Spacer() ,
          CustomText(
-            'Fashion',
+            title,
             fontSize: size20,
             fontWeight:bold,
       

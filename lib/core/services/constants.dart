@@ -17,23 +17,20 @@ const size28 = 28.0;
 const size29 = 29.0;
 const size30 = 30.0;
 
-
 const themeKey = 'themeMode';
 const langKey = 'lang';
 
-const FontWeight bold = FontWeight.bold ; 
-const FontWeight normal = FontWeight.normal ; 
+const FontWeight bold = FontWeight.bold;
 
+const FontWeight normal = FontWeight.normal;
 
 const List<String> productImages = [
-  "https://res.cloudinary.com/djfeplrup/image/upload/v1765583786/assets/shutterstock_1781009285_1_ttdh8c.png" , 
-"https://res.cloudinary.com/djfeplrup/image/upload/v1765583726/assets/image_55_v5zjiy.png" ,
-"https://res.cloudinary.com/djfeplrup/image/upload/v1765583714/assets/image_84_wbmdup.png" , 
-"https://res.cloudinary.com/djfeplrup/image/upload/v1765583430/assets/fast-fashion-concept-with-man-clothing-store_oag3vs.jpg" ,
-"https://res.cloudinary.com/djfeplrup/image/upload/v1765653347/image_64_vupi4b.png" ,  
-] ;
-
-
+  "https://res.cloudinary.com/djfeplrup/image/upload/v1765583786/assets/shutterstock_1781009285_1_ttdh8c.png",
+  "https://res.cloudinary.com/djfeplrup/image/upload/v1765583726/assets/image_55_v5zjiy.png",
+  "https://res.cloudinary.com/djfeplrup/image/upload/v1765583714/assets/image_84_wbmdup.png",
+  "https://res.cloudinary.com/djfeplrup/image/upload/v1765583430/assets/fast-fashion-concept-with-man-clothing-store_oag3vs.jpg",
+  "https://res.cloudinary.com/djfeplrup/image/upload/v1765653347/image_64_vupi4b.png",
+];
 
 final List<ProductModel> products = [
   ProductModel(
@@ -42,34 +39,46 @@ final List<ProductModel> products = [
     description: 'A trendy jacket for all seasons.',
     price: 59.99,
     imageUrl: productImages[0],
+    isFavourite: false,
+    discountPrice: 50,
   ),
-   ProductModel(
+  ProductModel(
     id: '2',
     name: 'Casual Shirt',
     description: 'Perfect for everyday wear.',
     price: 29.99,
     imageUrl: productImages[1],
+    isFavourite: true,
+    discountPrice: 20,
   ),
-   ProductModel(
+  ProductModel(
     id: '3',
     name: 'Elegant Dress',
     description: 'Ideal for special occasions.',
     price: 79.99,
     imageUrl: productImages[2],
+    isFavourite: false,
+    discountPrice: 60,
   ),
-   ProductModel(
+  ProductModel(
     id: '4',
     name: 'Comfortable Jeans',
     description: 'Stylish and comfortable denim jeans.',
     price: 49.99,
     imageUrl: productImages[3],
+    isFavourite: true,
+    discountPrice: 37,
   ),
 
-     ProductModel(
+  ProductModel(
     id: '5',
     name: 'Top',
     description: 'Stylish and comfortable denim jeans.',
     price: 49.99,
     imageUrl: productImages[4],
+    isFavourite: true,
+    discountPrice: 49.99,
   ),
 ];
+
+const List<String> recentSearch = ['Shirt', 'Watch', "Glass"];

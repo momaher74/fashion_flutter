@@ -10,21 +10,28 @@ class CollectionsListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      spacing: 20,
       children: [
         ShowAllWidget(title: "Collections"),
 
         ListView.builder(
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
+          itemCount: 2,
           itemBuilder: (context, index) {
-            final List<ProductModel> collections = products.sublist(1, 3);
+            final List<ProductModel> collections = [
+              products[2],
+              products[4],
+            ];
 
-            return CollecationContainer(
-              title: collections[index].name, 
-              subTitle: collections[index].description,
-              imageUrl: collections[index].imageUrl,
-            );    
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 50),
+              child: CollectionContainer(
+                title: collections[index].name,
+                subTitle: "Description",
+                imageUrl: collections[index].imageUrl,
+                marginPercentage: .01,
+              ),
+            );
           },
         ),
       ],

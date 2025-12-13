@@ -3,9 +3,10 @@ import 'package:fashion_flutter/core/widgets/cached_network_image.dart';
 import 'package:fashion_flutter/core/widgets/custom_text_widget.dart';
 import 'package:flutter/material.dart';
 
-class CollecationContainer extends StatelessWidget {
-  const CollecationContainer({super.key, required this.title, required this.subTitle, required this.imageUrl});
+class CollectionContainer extends StatelessWidget {
+  const CollectionContainer({super.key, required this.title, required this.subTitle, required this.imageUrl,  this.marginPercentage = 0.08});
   final String title , subTitle , imageUrl;
+  final double marginPercentage ;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class CollecationContainer extends StatelessWidget {
     final imageHeight = imageWidth * 1.4; // Maintain aspect ratio
 
     return Container(
-      margin: EdgeInsets.only(top: screenWidth * 0.08), // 8% of screen width
+      margin: EdgeInsets.only(top: screenWidth * marginPercentage), // 8% of screen width
       width: double.infinity,
       height: containerHeight,
       child: Stack(
@@ -86,6 +87,7 @@ class CollecationContainer extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(top: 40, left: 20),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               spacing: 30,
               children: [
                 CustomText(

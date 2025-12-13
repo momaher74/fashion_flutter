@@ -8,6 +8,7 @@ class CustomText extends StatelessWidget {
   final TextAlign? textAlign;
   final int? maxLines;
   final TextOverflow? overflow;
+  final bool lineThrough;
 
   const CustomText(
     this.text, {
@@ -18,6 +19,7 @@ class CustomText extends StatelessWidget {
     this.textAlign,
     this.maxLines,
     this.overflow,
+    this.lineThrough = false,
   });
 
   @override
@@ -29,10 +31,14 @@ class CustomText extends StatelessWidget {
       maxLines: maxLines,
       overflow: overflow,
       textAlign: textAlign,
+
       style: themeStyle?.copyWith(
         fontSize: fontSize ?? themeStyle.fontSize,
         fontWeight: fontWeight ?? themeStyle.fontWeight,
         color: color ?? themeStyle.color,
+        decoration: lineThrough
+            ? TextDecoration.lineThrough
+            : TextDecoration.none,
       ),
     );
   }
