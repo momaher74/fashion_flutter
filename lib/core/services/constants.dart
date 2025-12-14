@@ -82,3 +82,43 @@ final List<ProductModel> products = [
 ];
 
 const List<String> recentSearch = ['Shirt', 'Watch', "Glass"];
+
+// Hex string version if you prefer
+const List<String> colorHex = [
+  '0xFFFF0000', // Red
+  '0xFF00FF00', // Green
+  '0xFF0000FF', // Blue
+  '0xFFFFFF00', // Yellow
+  '0xFFFFA500', // Orange
+  '0xFF800080', // Purple
+  '0xFFFFC0CB', // Pink
+  '0xFFA52A2A', // Brown
+  '0xFF808080', // Grey
+  '0xFF000000', // Black
+  '0xFFFFFFFF', // White
+];
+
+// Sizes list
+const List<String> sizes = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
+
+// Sort options for filtering
+const List<String> sortOptions = [
+  'New Arrivals',
+  'Best Sellers',
+  'Offers',
+  'Price: Low to High',
+  'Price: High to Low',
+
+];
+
+
+// Sort options for filtering
+const List<String> discountOptions = [
+  '20% 0ff',
+  '30% 0ff',
+  '35% 0ff',
+];
+
+const rating = [1,2,3,4,5] ;
+
+

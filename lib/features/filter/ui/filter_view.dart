@@ -1,9 +1,13 @@
-import 'package:fashion_flutter/core/services/constants.dart';
+
 import 'package:fashion_flutter/core/widgets/custom_text_widget.dart';
-import 'package:fashion_flutter/core/widgets/product_item_widget.dart';
-import 'package:fashion_flutter/features/filter/ui/widgets/filter_app_bar.dart';
+import 'package:fashion_flutter/core/widgets/shared_back_button.dart';
+import 'package:fashion_flutter/core/widgets/shared_gridview.dart';
+import 'package:fashion_flutter/features/filter/ui/widgets/filter_bottomsheet_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
+
+import '../../../core/services/constants.dart';
 
 
 class FilterView extends StatelessWidget {
@@ -17,32 +21,31 @@ class FilterView extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            spacing: 20,
             children: [
-              Gap(60),
-          
-              FilterAppBar(title: "Dresses"),
-          
-              CustomText(
+              const Gap(60),
+
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                spacing: 20,
+                children: [
+                  SharedBackButton(),
+                  CustomText("Clothes" , fontSize: size20, fontWeight: bold,) ,
+                  Spacer(), 
+                  GestureDetector(
+                      onTap: (){
+                        showFilterBottomSheet(context);
+                      },
+                      child: Icon(  PhosphorIcons.funnel() ))
+                ],
+              ) ,
+
+              const Gap(20),
+              const Text(
                 "Found \n152 Results",
-                fontWeight: bold,
-                fontSize: size20,
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
-          
-              GridView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                padding: EdgeInsets.zero,
-                itemCount: products.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: .65,
-                  mainAxisSpacing: 30
-                ),
-                itemBuilder: (BuildContext context, int index) {
-                  return ProductItem(product: products[index] , isGrid: true,);
-                },
-              ),
+              const Gap(20),
+              SharedProductsGridView(),
             ],
           ),
         ),
