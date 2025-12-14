@@ -41,6 +41,7 @@ final List<ProductModel> products = [
     imageUrl: productImages[0],
     isFavourite: false,
     discountPrice: 50,
+    rate: 4
   ),
   ProductModel(
     id: '2',
@@ -50,6 +51,8 @@ final List<ProductModel> products = [
     imageUrl: productImages[1],
     isFavourite: true,
     discountPrice: 20,
+      rate: 4
+
   ),
   ProductModel(
     id: '3',
@@ -59,6 +62,8 @@ final List<ProductModel> products = [
     imageUrl: productImages[2],
     isFavourite: false,
     discountPrice: 60,
+      rate: 4
+
   ),
   ProductModel(
     id: '4',
@@ -68,6 +73,8 @@ final List<ProductModel> products = [
     imageUrl: productImages[3],
     isFavourite: true,
     discountPrice: 37,
+      rate: 3
+
   ),
 
   ProductModel(
@@ -78,6 +85,8 @@ final List<ProductModel> products = [
     imageUrl: productImages[4],
     isFavourite: true,
     discountPrice: 49.99,
+      rate: 5
+
   ),
 ];
 

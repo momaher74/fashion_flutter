@@ -4,6 +4,7 @@ class ProductModel {
   final String description;
   final double price;
   final double discountPrice;
+  final double rate;
   final String imageUrl;
   final bool isFavourite;
 
@@ -13,6 +14,7 @@ class ProductModel {
     required this.description,
     required this.price,
     required this.discountPrice,
+    required this.rate,
     required this.imageUrl,
     required this.isFavourite,
   });

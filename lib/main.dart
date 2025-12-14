@@ -5,6 +5,7 @@ import 'package:fashion_flutter/core/services/locator.dart';
 import 'package:fashion_flutter/core/themes/app_themes.dart';
 import 'package:fashion_flutter/core/themes/theme/theme_cubit.dart';
 import 'package:fashion_flutter/core/themes/theme/theme_state.dart';
+import 'package:fashion_flutter/features/product_details/ui/product_details_view.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -56,7 +57,7 @@ class MyApp extends StatelessWidget {
           themeMode: state.isDark ? ThemeMode.dark : ThemeMode.light,
           theme: AppThemes.lightTheme,
           darkTheme:AppThemes.darkTheme   ,
-          home: const FilterView(),
+          home: ProductDetailsView(productModel: products[2]),
         );
       },
     );

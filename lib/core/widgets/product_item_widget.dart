@@ -1,3 +1,4 @@
+import 'package:fashion_flutter/core/widgets/shared_favourite_button.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -42,24 +43,7 @@ class ProductItem extends StatelessWidget {
               Positioned(
                 top: 0,
                 right: 0,
-                child: Card(
-                  color: Colors.white,
-                  elevation: 5,
-                  shape: CircleBorder(),
-
-                  child: Center(
-                    child: Padding(
-                      padding: EdgeInsets.all(6),
-                      child: Icon(
-                        product.isFavourite
-                            ? Icons.favorite
-                            : Icons.favorite_border,
-                        size: size20,
-                        color: product.isFavourite ? Colors.red : Colors.grey,
-                      ),
-                    ),
-                  ),
-                ),
+                child: SharedFavouriteButton(isFavourite: product.isFavourite),
               ),
             ],
           ),
