@@ -9,6 +9,7 @@ import 'package:fashion_flutter/features/product_details/ui/product_details_view
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'features/filter/ui/filter_view.dart';
 
@@ -34,30 +35,38 @@ void main() async {
     ),
   );
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ThemeCubit, ThemeState>(
-      builder: (context, state) {
-        // Show empty container while loading
-        if (state.isLoading) {
-          return const MaterialApp(
-            home: Scaffold(
-              body: Center(child: CircularProgressIndicator()),
-            ),
-          );
-        }
+    return ScreenUtilInit(
+      designSize: const Size(375, 812), // iPhone X (recommended)
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return BlocBuilder<ThemeCubit, ThemeState>(
+          builder: (context, state) {
+            if (state.isLoading) {
+              return const MaterialApp(
+                home: Scaffold(
+                  body: Center(child: CircularProgressIndicator()),
+                ),
+              );
+            }
 
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
-          themeMode: state.isDark ? ThemeMode.dark : ThemeMode.light,
-          theme: AppThemes.lightTheme,
-          darkTheme:AppThemes.darkTheme   ,
-          home: ProductDetailsView(productModel: products[2]),
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: 'Fashion App',
+              themeMode: state.isDark ? ThemeMode.dark : ThemeMode.light,
+              theme: AppThemes.lightTheme,
+              darkTheme: AppThemes.darkTheme,
+              locale: context.locale,
+              supportedLocales: context.supportedLocales,
+              localizationsDelegates: context.localizationDelegates,
+              home: ProductDetailsView(productModel: products[2]),
+            );
+          },
         );
       },
     );

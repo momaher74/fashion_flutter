@@ -57,7 +57,7 @@ final List<ProductModel> products = [
   ProductModel(
     id: '3',
     name: 'Elegant Dress',
-    description: 'Ideal for special occasions.',
+    description: 'Sportswear is no longer under culture, it is no longer indie or cobbled together as it once was. Sport is fashion today. The top is oversized in fit and style, may need to size down.',
     price: 79.99,
     imageUrl: productImages[2],
     isFavourite: false,
