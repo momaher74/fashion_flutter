@@ -58,6 +58,8 @@ dependencies:
   lottie:
   animate_do:
   flutter_rating: ^2.0.2
+  google_nav_bar:
+  ffmpeg_kit_flutter_new: ^4.1.0
 
   
   

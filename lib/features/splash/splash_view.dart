@@ -1,4 +1,5 @@
 import 'package:fashion_flutter/features/home/ui/view/home_view.dart';
+import 'package:fashion_flutter/features/layout/ui/view/layout_view.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -29,7 +30,7 @@ class _SplashScreenState extends State<SplashView>
                 Navigator.pushReplacement(
                   context,
                   PageRouteBuilder(
-                    pageBuilder: (_, __, ___) => const HomeView(),
+                    pageBuilder: (_, __, ___) => const LayoutView(),
                     transitionsBuilder: (_, animation, __, child) {
                       return FadeTransition(
                         opacity: animation,
