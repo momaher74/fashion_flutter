@@ -25,14 +25,15 @@ class ProductHeaderWidget extends StatelessWidget {
                 child: CustomText(
                   productModel.name,
                   fontWeight: bold,
-                  fontSize: size20,
+                  fontSize: size18,
+                  maxLines: 2,
                 ),
               ),
               Spacer(),
               CustomText(
                 productModel.discountPrice.toString(),
                 fontWeight: bold,
-                fontSize: size20,
+                fontSize: size18,
               ),
               if (productModel.price !=
                   productModel.discountPrice)
@@ -42,7 +43,7 @@ class ProductHeaderWidget extends StatelessWidget {
                     productModel.price.toString(),
                     fontWeight: normal,
                     color: Colors.grey,
-                    fontSize: 12,
+                    fontSize: 10,
                     lineThrough: true,
                   ),
                 ),
@@ -125,7 +126,7 @@ class LottieRatingStars extends StatelessWidget {
 
   Widget _emptyStar() {
     return Icon(
-      Icons.star_border,
+      Icons.star,
       size: size,
       color: Colors.amber,
     );

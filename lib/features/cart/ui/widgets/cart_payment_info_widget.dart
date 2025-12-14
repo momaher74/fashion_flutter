@@ -1,0 +1,63 @@
+import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+
+import '../../../../core/widgets/custom_text_widget.dart';
+import '../../../../core/widgets/primary_button.dart';
+
+class CartPaymentInfoWidget extends StatelessWidget {
+  const CartPaymentInfoWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(15),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(12),
+          topRight: Radius.circular(12),
+        ),
+        boxShadow: [BoxShadow(offset: Offset(0, -1), color: Colors.grey)],
+      ),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              CustomText("Product price", color: Colors.grey, fontSize: 14),
+              Spacer(),
+              CustomText("120", fontSize: 14),
+            ],
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 15),
+            child: Divider(),
+          ),
+          Row(
+            children: [
+              CustomText("Shipping", color: Colors.grey, fontSize: 14),
+              Spacer(),
+              CustomText("30", fontSize: 14),
+            ],
+          ),
+
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 15),
+            child: Divider(),
+          ),
+          Row(
+            children: [
+              CustomText("Subtotal", fontSize: 14),
+              Spacer(),
+              CustomText("120", fontSize: 14),
+            ],
+          ),
+          Gap(10),
+
+
+          PrimaryButton(title: "Proceed to checkout"),
+          Gap(10),
+        ],
+      ),
+    );
+  }
+}

@@ -3,11 +3,13 @@ import 'package:fashion_flutter/core/models/product_model.dart';
 import 'package:fashion_flutter/core/services/constants.dart';
 import 'package:fashion_flutter/core/widgets/cached_network_image.dart';
 import 'package:fashion_flutter/core/widgets/custom_text_widget.dart';
+import 'package:fashion_flutter/core/widgets/primary_button.dart';
 import 'package:fashion_flutter/core/widgets/product_item_widget.dart';
 import 'package:fashion_flutter/features/product_details/ui/widgets/color_size_widget.dart';
 import 'package:fashion_flutter/features/product_details/ui/widgets/descripation_widget.dart';
 import 'package:fashion_flutter/features/product_details/ui/widgets/product_details_image_widget.dart';
 import 'package:fashion_flutter/features/product_details/ui/widgets/product_header_widget.dart';
+import 'package:fashion_flutter/features/product_details/ui/widgets/similar_products_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
@@ -62,9 +64,14 @@ class ProductDetailsView extends StatelessWidget {
                       ColorSizeWidget() ,
                       DescriptionWidget(description: productModel.description,) , 
                       Gap(30) ,
+                      SimilarProductsWidget() ,
 
-                                
-                                
+                      PrimaryButton(title: "Add to cart"),
+
+                      Gap(30) ,
+
+
+
                     ],
                   ),
                 ),
