@@ -57,6 +57,7 @@ dependencies:
   carousel_slider:
   lottie:
   animate_do:
+  flutter_rating: ^2.0.2
 
   
   

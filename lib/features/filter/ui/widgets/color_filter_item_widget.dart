@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 class FilterOptionColorItem extends StatelessWidget {
   final Color color;
 
-  const FilterOptionColorItem({Key? key, required this.color})
-      : super(key: key);
+  const FilterOptionColorItem({super.key, required this.color});
 
   @override
   Widget build(BuildContext context) {

@@ -24,7 +24,7 @@ class _PremiumAnimatedDividerState extends State<PremiumAnimatedDivider>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 2),
+      duration: const Duration(seconds: 4),
     )..repeat();
   }
 
@@ -66,31 +66,31 @@ class _PremiumAnimatedDividerState extends State<PremiumAnimatedDivider>
             },
           ),
 
-          /// ✨ Moving white indicator
-          AnimatedBuilder(
-            animation: _controller,
-            builder: (context, _) {
-              return Positioned(
-                left: (screenWidth - widget.indicatorWidth) *
-                    _controller.value,
-                child: Container(
-                  width: widget.indicatorWidth,
-                  height: widget.height + 4,
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.15),
-                        blurRadius: 6,
-                        offset: const Offset(0, 2),
-                      ),
-                    ],
-                  ),
-                ),
-              );
-            },
-          ),
+          // /// ✨ Moving white indicator
+          // AnimatedBuilder(
+          //   animation: _controller,
+          //   builder: (context, _) {
+          //     return Positioned(
+          //       left: (screenWidth - widget.indicatorWidth) *
+          //           _controller.value,
+          //       child: Container(
+          //         width: widget.indicatorWidth,
+          //         height: widget.height + 4,
+          //         decoration: BoxDecoration(
+          //           color: Colors.grey,
+          //           borderRadius: BorderRadius.circular(20),
+          //           boxShadow: [
+          //             BoxShadow(
+          //               color: Colors.black.withOpacity(0.15),
+          //               blurRadius: 6,
+          //               offset: const Offset(0, 2),
+          //             ),
+          //           ],
+          //         ),
+          //       ),
+          //     );
+          //   },
+          // ),
         ],
       ),
     );

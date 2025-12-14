@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'features/filter/ui/filter_view.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +19,7 @@ void main() async {
   await setupServiceLocator();
 
   // Load saved locale or use fallback
-  final savedLanguage = getIt<LocalDBService>().getString(langKey, defaultValue: "ar");
+  final savedLanguage = getIt<LocalDBService>().getString(langKey, defaultValue: "en");
   final startLocale = Locale(savedLanguage);
 
   runApp(
@@ -28,7 +28,7 @@ void main() async {
       child: EasyLocalization(
         supportedLocales: [const Locale('en'), const Locale('ar')],
         path: 'assets/translations',
-        fallbackLocale: const Locale('ar'),
+        fallbackLocale: const Locale('en'),
         startLocale: startLocale,
         child: const MyApp(),
       ),
