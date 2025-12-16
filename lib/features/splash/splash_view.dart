@@ -1,4 +1,3 @@
-import 'package:fashion_flutter/features/home/ui/view/home_view.dart';
 import 'package:fashion_flutter/features/layout/ui/view/layout_view.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';

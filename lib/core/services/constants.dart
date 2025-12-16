@@ -1,5 +1,9 @@
+import 'dart:io';
+
 import 'package:fashion_flutter/core/models/product_model.dart';
-import 'package:flutter/widgets.dart';
+import 'package:fashion_flutter/features/addresses/data/model/address_model.dart';
+import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 const size16 = 16.0;
 const size17 = 17.0;
@@ -41,7 +45,7 @@ final List<ProductModel> products = [
     imageUrl: productImages[0],
     isFavourite: false,
     discountPrice: 50,
-    rate: 4
+    rate: 4,
   ),
   ProductModel(
     id: '2',
@@ -51,19 +55,18 @@ final List<ProductModel> products = [
     imageUrl: productImages[1],
     isFavourite: true,
     discountPrice: 20,
-      rate: 4
-
+    rate: 4,
   ),
   ProductModel(
     id: '3',
     name: 'Elegant Dress',
-    description: 'Sportswear is no longer under culture, it is no longer indie or cobbled together as it once was. Sport is fashion today. The top is oversized in fit and style, may need to size down.',
+    description:
+        'Sportswear is no longer under culture, it is no longer indie or cobbled together as it once was. Sport is fashion today. The top is oversized in fit and style, may need to size down.',
     price: 79.99,
     imageUrl: productImages[2],
     isFavourite: false,
     discountPrice: 60,
-      rate: 4
-
+    rate: 4,
   ),
   ProductModel(
     id: '4',
@@ -73,8 +76,7 @@ final List<ProductModel> products = [
     imageUrl: productImages[3],
     isFavourite: true,
     discountPrice: 37,
-      rate: 3
-
+    rate: 3,
   ),
 
   ProductModel(
@@ -85,8 +87,7 @@ final List<ProductModel> products = [
     imageUrl: productImages[4],
     isFavourite: true,
     discountPrice: 49.99,
-      rate: 5
-
+    rate: 5,
   ),
 ];
 
@@ -117,17 +118,39 @@ const List<String> sortOptions = [
   'Offers',
   'Price: Low to High',
   'Price: High to Low',
-
 ];
-
 
 // Sort options for filtering
-const List<String> discountOptions = [
-  '20% 0ff',
-  '30% 0ff',
-  '35% 0ff',
-];
+const List<String> discountOptions = ['20% 0ff', '30% 0ff', '35% 0ff'];
 
-const rating = [1,2,3,4,5] ;
+final List<AddressModel> addresses = [
+  AddressModel(username: 'mo maher', phoneNumber: '010984381', street: 'gheaty', city: 'cairo', state: 'halawat', zipCode: '455'),
+  AddressModel(username: 'mo maher', phoneNumber: '010984381', street: 'gheaty', city: 'cairo', state: 'halawat', zipCode: '455'),
+  AddressModel(username: 'mo maher', phoneNumber: '010984381', street: 'gheaty', city: 'cairo', state: 'halawat', zipCode: '455'),
+  AddressModel(username: 'mo maher', phoneNumber: '010984381', street: 'gheaty', city: 'cairo', state: 'halawat', zipCode: '455'),
+
+] ;
+const rating = [1, 2, 3, 4, 5];
+
+const Color primaryColor = Colors.deepPurple;
+
+bool isIos() {
+  if (Platform.isIOS) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 
+Gap headerGap({double ? gap}){
+  return Gap(gap ?? 60) ;
+}
+
+const double verticalSpace = 20 ;
+
+void push({required BuildContext context ,required Widget widget}){
+
+  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>widget));
+
+}

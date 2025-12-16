@@ -17,9 +17,8 @@ class ShowAllWidget extends StatelessWidget {
           Spacer(),
           CustomText(
             "Show all",
-            fontSize: size16,
+            fontSize: 10,
             fontWeight: normal,
-            color: Colors.grey,
           ),
         ],
       ),

@@ -5,10 +5,13 @@ import 'package:fashion_flutter/core/services/locator.dart';
 import 'package:fashion_flutter/core/themes/app_themes.dart';
 import 'package:fashion_flutter/core/themes/theme/theme_cubit.dart';
 import 'package:fashion_flutter/core/themes/theme/theme_state.dart';
+import 'package:fashion_flutter/features/addresses/ui/get_addresses_view.dart';
 import 'package:fashion_flutter/features/splash/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'features/addresses/ui/create_address_view.dart';
 
 
 
@@ -63,7 +66,7 @@ class MyApp extends StatelessWidget {
               locale: context.locale,
               supportedLocales: context.supportedLocales,
               localizationsDelegates: context.localizationDelegates,
-              home: SplashView(),
+              home: GetAddressesView(),
             );
           },
         );
