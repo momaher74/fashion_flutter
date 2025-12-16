@@ -1,5 +1,7 @@
+import 'package:fashion_flutter/core/router/routes_names.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/widgets/custom_text_widget.dart';
 import '../../../../core/widgets/primary_button.dart';
@@ -54,7 +56,9 @@ class CartPaymentInfoWidget extends StatelessWidget {
           Gap(10),
 
 
-          PrimaryButton(title: "Proceed to checkout"),
+          PrimaryButton(title: "Proceed to checkout", onTap: () {
+            context.pushNamed(myAddressesView);
+          },),
           Gap(10),
         ],
       ),

@@ -241,3 +241,6 @@ Color getOrderStatusColor({required String status}) {
       return Colors.grey;
   }
 }
+
+
+const Color starColor = Color(0xff508A7B) ;

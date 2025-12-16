@@ -1,7 +1,7 @@
-import 'package:fashion_flutter/core/services/constants.dart';
-import 'package:fashion_flutter/features/addresses/ui/update_address_view.dart';
+import 'package:fashion_flutter/core/router/routes_names.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/widgets/custom_text_widget.dart';
 import '../../../../core/widgets/primary_button.dart';
@@ -21,7 +21,7 @@ class AddressCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -75,7 +75,7 @@ class AddressCard extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: (){
-                  push(context: context, widget: UpdateAddressView(addressModel: address) ) ;
+                  context.pushNamed(editAddressView);
                 },
                 child: Row(
                   children: [
@@ -90,7 +90,9 @@ class AddressCard extends StatelessWidget {
                 title: "select",
                 width: 70,
                 height: 40,
-                fontSize: 12,
+                fontSize: 12, onTap: () {
+
+              },
               ),
             ],
           ),

@@ -1,0 +1,10 @@
+const String splashView = "/" ;
+const String layoutView = "/layout" ;
+const String cartView = "/cart" ;
+const String notificationView = "/notification" ;
+const String myAddressesView = "/myAddresses" ;
+const String addAddressView = "/addAddress" ;
+const String editAddressView = "/editAddress" ;
+const String ordersView = "/orders" ;
+const String orderDetailsView = "/orderDetails" ;
+const String rateOrderView = "/rateOrder" ;

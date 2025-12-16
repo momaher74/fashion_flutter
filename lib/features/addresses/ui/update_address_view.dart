@@ -7,9 +7,9 @@ import '../../../core/widgets/custome_text_form_filed_widget.dart';
 import '../../../core/widgets/primary_button.dart';
 import '../data/model/address_model.dart';
 
-/// ==================
-class UpdateAddressView extends StatefulWidget {
-  const UpdateAddressView({
+
+class EditAddressView extends StatefulWidget {
+  const EditAddressView({
     super.key,
     required this.addressModel,
   });
@@ -17,10 +17,10 @@ class UpdateAddressView extends StatefulWidget {
   final AddressModel addressModel;
 
   @override
-  State<UpdateAddressView> createState() => _UpdateAddressViewState();
+  State<EditAddressView> createState() => _UpdateAddressViewState();
 }
 
-class _UpdateAddressViewState extends State<UpdateAddressView> {
+class _UpdateAddressViewState extends State<EditAddressView> {
   late final TextEditingController usernameController;
   late final TextEditingController phoneController;
   late final TextEditingController streetController;
@@ -106,9 +106,8 @@ class _UpdateAddressViewState extends State<UpdateAddressView> {
             const Gap(80),
 
             PrimaryButton(
-              title: "Edit Address",
+              title: "Edit Address", onTap: () {  },
 
-                /// TODO: Send updatedAddress to Cubit / API
 
             ),
           ],

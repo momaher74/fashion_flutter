@@ -1,11 +1,13 @@
+import 'package:fashion_flutter/core/router/routes_names.dart';
 import 'package:fashion_flutter/core/services/constants.dart';
 import 'package:fashion_flutter/core/widgets/custom_text_widget.dart';
 import 'package:fashion_flutter/features/addresses/ui/widgets/address_card_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 
-class GetAddressesView extends StatelessWidget {
-  const GetAddressesView({super.key});
+class MyAddressesView extends StatelessWidget {
+  const MyAddressesView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,9 @@ class GetAddressesView extends StatelessWidget {
 
         ],
       ) ,
-      floatingActionButton: FloatingActionButton(onPressed: (){} , backgroundColor: Colors.black,child: Icon(Icons.add ,color: Colors.white,),),
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        context.pushNamed(addAddressView);
+      } , backgroundColor: Colors.black,child: Icon(Icons.add ,color: Colors.white,),),
     );
   }
 }

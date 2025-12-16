@@ -6,8 +6,8 @@ import 'package:gap/gap.dart';
 
 import '../../../core/services/constants.dart';
 
-class CreateAddressView extends StatelessWidget {
-  const CreateAddressView({super.key});
+class AddAddressView extends StatelessWidget {
+  const AddAddressView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class CreateAddressView extends StatelessWidget {
             CustomTextFormField(hintText: "state",) ,
             CustomTextFormField(hintText: "zip-code",) ,
             Gap(80) ,
-            PrimaryButton(title: "Add New Address")
+            PrimaryButton(title: "Add New Address", onTap: () {  },)
         
         
           ],

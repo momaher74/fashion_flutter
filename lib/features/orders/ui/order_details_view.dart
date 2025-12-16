@@ -1,3 +1,4 @@
+import 'package:fashion_flutter/core/router/routes_names.dart';
 import 'package:fashion_flutter/core/services/constants.dart';
 import 'package:fashion_flutter/core/widgets/custom_text_widget.dart';
 import 'package:fashion_flutter/core/widgets/primary_button.dart';
@@ -7,6 +8,7 @@ import 'package:fashion_flutter/features/orders/ui/widgets/order_products_listvi
 import 'package:fashion_flutter/features/orders/ui/widgets/order_status_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/models/product_model.dart';
 import '../../../core/widgets/product_item_widget.dart';
@@ -54,7 +56,9 @@ class OrderDetailsView extends StatelessWidget {
                     ),
                   )
                 ),
-                Expanded(flex: 2, child: PrimaryButton(title: "Rate")),
+                Expanded(flex: 2, child: PrimaryButton(title: "Rate", onTap: () {
+                  context.pushNamed(rateOrderView) ;
+                },)),
               ],
             ),
           ],

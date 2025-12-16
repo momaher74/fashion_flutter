@@ -1,6 +1,8 @@
+import 'package:fashion_flutter/core/router/routes_names.dart';
 import 'package:fashion_flutter/core/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/services/constants.dart';
 import '../../../../core/widgets/custom_text_widget.dart';
@@ -88,7 +90,9 @@ class OrderItemWidget extends StatelessWidget {
               children: [
                 CustomText(order.status ,fontSize: size14,fontWeight: FontWeight.w600,color: getOrderStatusColor(status: order.status), ),
                 Spacer() ,
-                PrimaryButton( fontSize: 12, title: "View"  , width: 60,height: 35,horizontal: 0,)
+                PrimaryButton( fontSize: 12, title: "View"  , width: 60,height: 35,horizontal: 0, onTap: () {
+                  context.pushNamed(orderDetailsView ,extra:  order);
+                },)
               ],
             )
 

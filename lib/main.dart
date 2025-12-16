@@ -7,11 +7,13 @@ import 'package:fashion_flutter/core/themes/theme/theme_cubit.dart';
 import 'package:fashion_flutter/core/themes/theme/theme_state.dart';
 import 'package:fashion_flutter/features/addresses/ui/get_addresses_view.dart';
 import 'package:fashion_flutter/features/orders/ui/orders_view.dart';
+import 'package:fashion_flutter/features/orders/ui/rate_order_view.dart';
 import 'package:fashion_flutter/features/splash/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'core/router/go_router_config.dart';
 import 'features/addresses/ui/create_address_view.dart';
 import 'features/orders/ui/order_details_view.dart';
 
@@ -59,16 +61,19 @@ class MyApp extends StatelessWidget {
               );
             }
 
-            return MaterialApp(
+            return MaterialApp.router(
               debugShowCheckedModeBanner: false,
               title: 'Fashion App',
+
               themeMode: state.isDark ? ThemeMode.dark : ThemeMode.light,
               theme: AppThemes.lightTheme,
               darkTheme: AppThemes.darkTheme,
+
               locale: context.locale,
               supportedLocales: context.supportedLocales,
               localizationsDelegates: context.localizationDelegates,
-              home: OrderDetailsView(order: orders.first,),
+
+              routerConfig: router,
             );
           },
         );

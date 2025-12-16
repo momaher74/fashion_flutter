@@ -61,7 +61,7 @@ class ProductDetailsView extends StatelessWidget {
                       Gap(30) ,
                       SimilarProductsWidget() ,
 
-                      PrimaryButton(title: "Add to cart"),
+                      PrimaryButton(title: "Add to cart", onTap: () {  },),
 
                       Gap(30) ,
 

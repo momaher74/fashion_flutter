@@ -1,5 +1,7 @@
+import 'package:fashion_flutter/core/router/routes_names.dart';
 import 'package:fashion_flutter/features/layout/ui/view/layout_view.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 
 class SplashView extends StatefulWidget {
@@ -26,18 +28,7 @@ class _SplashScreenState extends State<SplashView>
             fit: BoxFit.cover,
             onLoaded: (composition) {
               Future.delayed(composition.duration.inSeconds > 3 ? Duration(seconds: 3) : composition.duration, () {
-                Navigator.pushReplacement(
-                  context,
-                  PageRouteBuilder(
-                    pageBuilder: (_, __, ___) => const LayoutView(),
-                    transitionsBuilder: (_, animation, __, child) {
-                      return FadeTransition(
-                        opacity: animation,
-                        child: child,
-                      );
-                    },
-                  ),
-                );
+              context.pushNamed(layoutView) ;
               });
             },
           ),
