@@ -7,16 +7,15 @@ class SharedBackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return    SizedBox(
-      width: 60,
-      height: 60,
+    return SizedBox(
+      width: 50,
+      height: 50,
       child: Card(
+
         color: Colors.white,
         elevation: 5,
         shape: CircleBorder(),
-        child: Center(
-          child: Icon(Icons.arrow_back_ios, size: size20),
-        ),
+        child: Center(child: Icon(Icons.arrow_back_ios, size: size16)),
       ),
     );
   }
