@@ -116,7 +116,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
               )
             : widget.suffixIcon,
         filled: true,
-        fillColor: widget.fillColor ?? theme.inputDecorationTheme.fillColor,
+        fillColor: widget.fillColor ?? Colors.transparent,
         contentPadding:
             widget.contentPadding ??
             const EdgeInsets.symmetric(horizontal: 16, vertical: 14),

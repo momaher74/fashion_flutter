@@ -1,3 +1,4 @@
+import 'package:fashion_flutter/core/services/constants.dart';
 import 'package:flutter/material.dart';
 
 class PremiumAnimatedDivider extends StatefulWidget {
@@ -53,12 +54,12 @@ class _PremiumAnimatedDividerState extends State<PremiumAnimatedDivider>
                 width: double.infinity,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    begin: Alignment(-1 + _controller.value * 2, 0),
-                    end: Alignment(1 + _controller.value * 2, 0),
+                    begin: Alignment(-1 + _controller.value * 3, 0),
+                    end: Alignment(1 + _controller.value * 4, 0),
                     colors: [
-                      Colors.black.withOpacity(0.3),
-                      Colors.black,
-                      Colors.black.withOpacity(0.3),
+                      primaryColor.withOpacity(0.3),
+                      primaryColor,
+                      primaryColor.withOpacity(0.3),
                     ],
                   ),
                 ),

@@ -9,10 +9,10 @@ import 'cached_network_image.dart';
 import 'custom_text_widget.dart';
 
 class ProductItem extends StatelessWidget {
-  const ProductItem({super.key, required this.product,  this.isGrid =  false});
+  const ProductItem({super.key, required this.product,  this.isGrid =  false,  this.showFavIcon = true});
 
   final ProductModel product;
-  final bool isGrid ;
+  final bool isGrid , showFavIcon ;
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +45,7 @@ class ProductItem extends StatelessWidget {
                     color: Colors.black.withValues(alpha: .1),
                   ),
                 ),
+                if(showFavIcon)
                 Positioned(
                   top: 0,
                   right: 0,

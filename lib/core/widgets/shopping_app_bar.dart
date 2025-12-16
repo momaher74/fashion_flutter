@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/services/constants.dart';
-import '../../../../core/widgets/custom_text_widget.dart';
-import '../../../../core/widgets/shared_back_button.dart';
+import '../services/constants.dart';
+import 'custom_text_widget.dart';
+import 'shared_back_button.dart';
 
 class ShoppingAppBar extends StatelessWidget {
   const ShoppingAppBar({super.key, required this.title});
