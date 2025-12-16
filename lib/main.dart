@@ -5,16 +5,10 @@ import 'package:fashion_flutter/core/services/locator.dart';
 import 'package:fashion_flutter/core/themes/app_themes.dart';
 import 'package:fashion_flutter/core/themes/theme/theme_cubit.dart';
 import 'package:fashion_flutter/core/themes/theme/theme_state.dart';
-import 'package:fashion_flutter/features/filter/ui/filter_view.dart';
-import 'package:fashion_flutter/features/product_details/ui/product_details_view.dart';
 import 'package:fashion_flutter/features/splash/splash_view.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'features/cart/ui/cart_view.dart';
-import 'features/layout/ui/view/layout_view.dart';
 
 
 

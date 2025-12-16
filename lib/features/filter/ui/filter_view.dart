@@ -1,4 +1,3 @@
-
 import 'package:fashion_flutter/core/widgets/custom_text_widget.dart';
 import 'package:fashion_flutter/core/widgets/shared_back_button.dart';
 import 'package:fashion_flutter/core/widgets/shared_gridview.dart';
@@ -8,7 +7,6 @@ import 'package:gap/gap.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../../../core/services/constants.dart';
-
 
 class FilterView extends StatelessWidget {
   const FilterView({super.key});
@@ -29,15 +27,17 @@ class FilterView extends StatelessWidget {
                 spacing: 20,
                 children: [
                   SharedBackButton(),
-                  CustomText("Clothes" , fontSize: size20, fontWeight: bold,) ,
-                  Spacer(), 
+                  Spacer(),
+                  CustomText("Clothes", fontSize: size20, fontWeight: bold),
+                  Spacer(),
                   GestureDetector(
-                      onTap: (){
-                        showFilterBottomSheet(context);
-                      },
-                      child: Icon(  PhosphorIcons.funnel() ))
+                    onTap: () {
+                      showFilterBottomSheet(context);
+                    },
+                    child: Icon(PhosphorIcons.funnel() , size: 30,),
+                  ),
                 ],
-              ) ,
+              ),
 
               const Gap(20),
               const Text(
