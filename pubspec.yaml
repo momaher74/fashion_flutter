@@ -48,6 +48,7 @@ dependencies:
   flutter_spinkit:
   flutter_staggered_grid_view:
   shimmer:
+  flutter_slider_drawer: ^3.0.2
   pull_to_refresh:
   flutter_svg:
   url_launcher:
