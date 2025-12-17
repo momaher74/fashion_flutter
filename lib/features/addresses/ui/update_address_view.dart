@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../../../core/services/constants.dart';
-import '../../../core/widgets/custom_text_widget.dart';
 import '../../../core/widgets/custome_text_form_filed_widget.dart';
 import '../../../core/widgets/primary_button.dart';
 import '../data/model/address_model.dart';
@@ -68,7 +67,7 @@ class _UpdateAddressViewState extends State<EditAddressView> {
           children: [
             headerGap(),
 
-            ShoppingAppBar(title: "Edit Address",) ,
+            ShoppingAppBar(title: "Edit Address", horizontal: 0,) ,
             CustomTextFormField(
               hintText: "Username",
               controller: usernameController,

@@ -17,7 +17,7 @@ class CartView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Gap(60),
-          ShoppingAppBar(title: "Your Cart"),
+          ShoppingAppBar(title: "Your Cart" ,horizontal: 10,),
 
           Gap(20),
 

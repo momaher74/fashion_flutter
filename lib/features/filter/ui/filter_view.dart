@@ -1,6 +1,7 @@
 import 'package:fashion_flutter/core/widgets/custom_text_widget.dart';
 import 'package:fashion_flutter/core/widgets/shared_back_button.dart';
 import 'package:fashion_flutter/core/widgets/shared_gridview.dart';
+import 'package:fashion_flutter/core/widgets/shopping_app_bar.dart';
 import 'package:fashion_flutter/features/filter/ui/widgets/filter_bottomsheet_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -21,24 +22,17 @@ class FilterView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Gap(60),
-
               Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                spacing: 20,
                 children: [
-                  SharedBackButton(),
-                  Spacer(),
-                  CustomText("Clothes", fontSize: size20, fontWeight: bold),
-                  Spacer(),
+                  Expanded(child: ShoppingAppBar(title: "Clothes", horizontal: 0)),
                   GestureDetector(
                     onTap: () {
                       showFilterBottomSheet(context);
                     },
-                    child: Icon(PhosphorIcons.funnel() , size: 30,),
+                    child: Icon(PhosphorIcons.funnel(), size: 30),
                   ),
                 ],
               ),
-
               const Gap(20),
               const Text(
                 "Found \n152 Results",

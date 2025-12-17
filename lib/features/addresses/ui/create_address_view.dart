@@ -20,7 +20,7 @@ class AddAddressView extends StatelessWidget {
           children: [
             headerGap()  ,
 
-       ShoppingAppBar(title: "Add New Address") ,
+       ShoppingAppBar(title: "Add New Address" , horizontal: 0,) ,
 
             CustomTextFormField(hintText: "username",) ,
             CustomTextFormField(hintText: "phone number",) ,
