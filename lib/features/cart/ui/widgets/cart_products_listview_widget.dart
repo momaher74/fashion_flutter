@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -63,17 +64,22 @@ class CartProductsListviewWidget extends StatelessWidget {
                             ),
                           ),
 
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12),
-                              border: Border.all(color: Colors.grey, width: 2),
-                            ),
-                            child: Row(
-                              children: [
-                                Icon(Icons.remove, color: Colors.grey),
-                                CustomText("3"),
-                                Icon(Icons.add, color: Colors.grey),
-                              ],
+                          Swing(
+                            animate: true,
+                            delay: Duration(milliseconds: 300),
+                            duration: Duration(milliseconds: 800),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                border: Border.all(color: Colors.grey, width: 2),
+                              ),
+                              child: Row(
+                                children: [
+                                  GestureDetector(child: Icon(Icons.remove, color: Colors.grey)),
+                                  CustomText("3"),
+                                  Icon(Icons.add, color: Colors.grey),
+                                ],
+                              ),
                             ),
                           ),
                         ],
