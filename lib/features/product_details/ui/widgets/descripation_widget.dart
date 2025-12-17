@@ -1,3 +1,4 @@
+import 'package:fashion_flutter/core/services/app_localizations.dart';
 import 'package:fashion_flutter/core/services/constants.dart';
 import 'package:fashion_flutter/core/widgets/custom_text_widget.dart';
 import 'package:fashion_flutter/features/product_details/ui/widgets/reviews_listview_widget.dart';
@@ -17,10 +18,18 @@ class DescriptionWidget extends StatelessWidget {
         spacing: 15,
         children: [
           Divider(),
-          CustomText("Description", fontWeight: bold, fontSize: size16),
+          CustomText(
+            AppLocalizations.common.description,
+            fontWeight: bold,
+            fontSize: size16,
+          ),
           CustomText(description, fontSize: 12),
           Divider(),
-          CustomText("Reviews", fontWeight: bold, fontSize: size16),
+          CustomText(
+            AppLocalizations.product.reviews,
+            fontWeight: bold,
+            fontSize: size16,
+          ),
           ReviewsListviewWidget(),
         ],
       ),

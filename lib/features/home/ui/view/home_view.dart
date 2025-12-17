@@ -1,3 +1,4 @@
+import 'package:fashion_flutter/core/services/app_localizations.dart';
 import 'package:fashion_flutter/core/services/constants.dart';
 import 'package:fashion_flutter/core/widgets/custom_text_widget.dart';
 import 'package:fashion_flutter/features/home/ui/view/widgets/custom_drawer_widget.dart';
@@ -30,8 +31,9 @@ class _HomeViewState extends State<HomeView> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Spacer(),
-                  const CustomText(
-                    "Fashion",
+                  CustomText(
+                    AppLocalizations.appName,
+
                     fontSize: size22,
                     fontWeight: bold,
                   ),

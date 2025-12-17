@@ -2,6 +2,7 @@ import 'package:fashion_flutter/core/router/routes_names.dart';
 import 'package:fashion_flutter/core/services/constants.dart';
 import 'package:fashion_flutter/core/widgets/primary_button.dart';
 import 'package:fashion_flutter/core/widgets/shared_app_bar.dart';
+import 'package:fashion_flutter/core/widgets/shopping_app_bar.dart';
 import 'package:fashion_flutter/features/orders/ui/widgets/rate_header_widget.dart';
 import 'package:fashion_flutter/features/orders/ui/widgets/review_comment_widget.dart';
 import 'package:flutter/material.dart';
@@ -24,25 +25,19 @@ class RateOrderView extends StatelessWidget {
             spacing: verticalSpace,
             children: [
               headerGap(),
-
-              SharedAppBar(title: "Rate Order"),
-              Gap(10)  ,
-
+              ShoppingAppBar(title: "Rate Order"),
+              Gap(10),
               RateHeaderWidget(),
-              Gap(20)  ,
-              RateBarSectionWidget() ,
-
-              ReviewCommentWidget() ,
-              Gap(40)  ,
-              
-              PrimaryButton(title: "Submit Review", onTap: () {
-
-                context.pushReplacementNamed(layoutView);
-
-              },)
-
-
-
+              Gap(20),
+              RateBarSectionWidget(),
+              ReviewCommentWidget(),
+              Gap(40),
+              PrimaryButton(
+                title: "Submit Review",
+                onTap: () {
+                  context.pushReplacementNamed(layoutView);
+                },
+              ),
             ],
           ),
         ),

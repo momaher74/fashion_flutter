@@ -1,4 +1,5 @@
 import 'package:fashion_flutter/core/models/product_model.dart';
+import 'package:fashion_flutter/core/services/app_localizations.dart';
 import 'package:fashion_flutter/core/services/constants.dart';
 import 'package:fashion_flutter/core/widgets/primary_button.dart';
 import 'package:fashion_flutter/features/product_details/ui/widgets/color_size_widget.dart';
@@ -8,7 +9,6 @@ import 'package:fashion_flutter/features/product_details/ui/widgets/product_head
 import 'package:fashion_flutter/features/product_details/ui/widgets/similar_products_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-
 
 import '../../../core/widgets/animated_divider_widget.dart';
 import 'widgets/all_images_list_view.dart';
@@ -32,7 +32,6 @@ class ProductDetailsView extends StatelessWidget {
                 isFavourite: productModel.isFavourite,
               ),
               Container(
-           
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -51,22 +50,24 @@ class ProductDetailsView extends StatelessWidget {
                   physics: NeverScrollableScrollPhysics(),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                                
+
                     children: [
-                      Center(child: ProductAllImagesListView(images: productImages)),
-                      PremiumAnimatedDivider(height: 1,indicatorWidth: 6,) ,
+                      Center(
+                        child: ProductAllImagesListView(images: productImages),
+                      ),
+                      PremiumAnimatedDivider(height: 1, indicatorWidth: 6),
                       ProductHeaderWidget(productModel: productModel),
-                      ColorSizeWidget() ,
-                      DescriptionWidget(description: productModel.description,) , 
-                      Gap(30) ,
-                      SimilarProductsWidget() ,
+                      ColorSizeWidget(),
+                      DescriptionWidget(description: productModel.description),
+                      Gap(30),
+                      SimilarProductsWidget(),
 
-                      PrimaryButton(title: "Add to cart", onTap: () {  },),
+                      PrimaryButton(
+                        title: AppLocalizations.product.addToCart,
+                        onTap: () {},
+                      ),
 
-                      Gap(30) ,
-
-
-
+                      Gap(30),
                     ],
                   ),
                 ),

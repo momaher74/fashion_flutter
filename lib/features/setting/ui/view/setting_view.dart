@@ -1,5 +1,7 @@
+import 'package:fashion_flutter/core/services/app_localizations.dart';
 import 'package:fashion_flutter/core/services/constants.dart';
 import 'package:fashion_flutter/core/widgets/custom_text_widget.dart';
+import 'package:fashion_flutter/core/widgets/language_switcher_dialog.dart';
 import 'package:fashion_flutter/core/widgets/shopping_app_bar.dart';
 import 'package:fashion_flutter/features/setting/ui/view/widgets/setting_item_widget.dart';
 import 'package:flutter/material.dart';
@@ -16,14 +18,39 @@ class SettingView extends StatelessWidget {
         spacing: verticalSpace,
         children: [
           headerGap(),
-          ShoppingAppBar(title: "Setting"),
-        Gap(10) ,
+          ShoppingAppBar(title: AppLocalizations.settings.settings),
+          Gap(10),
 
-        SettingItemWidget(text: "Language", iconData: PhosphorIcons.globe(), onTap: () {  },),
-        SettingItemWidget(text: "Notification", iconData: PhosphorIcons.bell(), onTap: () {  },),
-        SettingItemWidget(text: "Terms of Use", iconData: PhosphorIcons.list(), onTap: () {  },),
-        SettingItemWidget(text: "Privacy Policy", iconData: PhosphorIcons.info(), onTap: () {  },),
-        SettingItemWidget(text: "Addresses", iconData: PhosphorIcons.mapPinSimpleArea(), onTap: () {  },),
+          SettingItemWidget(
+            text: AppLocalizations.settings.language,
+            iconData: PhosphorIcons.globe(),
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (context) => const LanguageSwitcherDialog(),
+              );
+            },
+          ),
+          SettingItemWidget(
+            text: AppLocalizations.settings.notification,
+            iconData: PhosphorIcons.bell(),
+            onTap: () {},
+          ),
+          SettingItemWidget(
+            text: AppLocalizations.settings.termsOfUse,
+            iconData: PhosphorIcons.list(),
+            onTap: () {},
+          ),
+          SettingItemWidget(
+            text: AppLocalizations.settings.privacyPolicy,
+            iconData: PhosphorIcons.info(),
+            onTap: () {},
+          ),
+          SettingItemWidget(
+            text: AppLocalizations.settings.addresses,
+            iconData: PhosphorIcons.mapPinSimpleArea(),
+            onTap: () {},
+          ),
         ],
       ),
     );

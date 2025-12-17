@@ -1,4 +1,5 @@
 import 'package:fashion_flutter/core/router/routes_names.dart';
+import 'package:fashion_flutter/core/services/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
@@ -25,7 +26,11 @@ class CartPaymentInfoWidget extends StatelessWidget {
         children: [
           Row(
             children: [
-              CustomText("Product price", color: Colors.grey, fontSize: 14),
+              CustomText(
+                AppLocalizations.cart.productPrice,
+                color: Colors.grey,
+                fontSize: 14,
+              ),
               Spacer(),
               CustomText("120", fontSize: 14),
             ],
@@ -36,7 +41,11 @@ class CartPaymentInfoWidget extends StatelessWidget {
           ),
           Row(
             children: [
-              CustomText("Shipping", color: Colors.grey, fontSize: 14),
+              CustomText(
+                AppLocalizations.cart.shipping,
+                color: Colors.grey,
+                fontSize: 14,
+              ),
               Spacer(),
               CustomText("30", fontSize: 14),
             ],
@@ -48,17 +57,19 @@ class CartPaymentInfoWidget extends StatelessWidget {
           ),
           Row(
             children: [
-              CustomText("Subtotal", fontSize: 14),
+              CustomText(AppLocalizations.cart.subtotal, fontSize: 14),
               Spacer(),
               CustomText("120", fontSize: 14),
             ],
           ),
           Gap(10),
 
-
-          PrimaryButton(title: "Proceed to checkout", onTap: () {
-            context.pushNamed(myAddressesView);
-          },),
+          PrimaryButton(
+            title: AppLocalizations.cart.checkout,
+            onTap: () {
+              context.pushNamed(myAddressesView);
+            },
+          ),
           Gap(10),
         ],
       ),

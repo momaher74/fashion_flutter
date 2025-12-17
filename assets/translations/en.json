@@ -1,3 +1,237 @@
 {
-    "name": "Name"
+  "app_name": "Fashion",
+  
+  "common": {
+    "show_all": "Show all",
+    "description": "Description",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "phone": "Phone",
+    "address": "Address",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "update": "Update",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "apply": "Apply",
+    "reset": "Reset",
+    "done": "Done",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "ok": "OK",
+    "yes": "Yes",
+    "no": "No"
+  },
+
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "log_into_account": "Log into \nyour account",
+    "create_account": "Create \nyour account",
+    "email_address": "Email address",
+    "forgot_password": "Forgot Password?",
+    "or_log_in_with": "or log in with",
+    "or_sign_up_with": "or sign up with",
+    "dont_have_account": "Don't have an account?",
+    "already_have_account": "Already have an account?",
+    "sign_up": "Sign up",
+    "sign_in": "Sign in",
+    "change_password": "Change Password",
+    "old_password": "Old Password",
+    "new_password": "New Password",
+    "reset_password": "Reset Password",
+    "enter_otp": "Enter OTP",
+    "otp_sent": "OTP sent to your email",
+    "verify": "Verify",
+    "resend_otp": "Resend OTP"
+  },
+
+  "home": {
+    "collections": "Collections",
+    "new_arrivals": "New Arrivals",
+    "recommended": "Recommended",
+    "trending": "Trending",
+    "categories": "Categories",
+    "featured": "Featured",
+    "best_sellers": "Best Sellers",
+    "special_offers": "Special Offers"
+  },
+
+  "product": {
+    "product_details": "Product Details",
+    "similar_products": "Similar Product",
+    "color": "Color",
+    "size": "Size",
+    "quantity": "Quantity",
+    "add_to_cart": "Add to Cart",
+    "buy_now": "Buy Now",
+    "reviews": "Reviews",
+    "write_review": "Write a Review",
+    "rating": "Rating",
+    "price": "Price",
+    "discount": "Discount",
+    "in_stock": "In Stock",
+    "out_of_stock": "Out of Stock"
+  },
+
+  "cart": {
+    "my_cart": "My Cart",
+    "cart_empty": "Your cart is empty",
+    "product_price": "Product price",
+    "shipping": "Shipping",
+    "subtotal": "Subtotal",
+    "total": "Total",
+    "checkout": "Checkout",
+    "continue_shopping": "Continue Shopping",
+    "remove_from_cart": "Remove from cart"
+  },
+
+  "orders": {
+    "my_orders": "My Orders",
+    "order_details": "Order Details",
+    "order_number": "Order Number",
+    "order_date": "Order Date",
+    "order_status": "Order Status",
+    "order_total": "Order Total",
+    "pending": "Pending",
+    "delivered": "Delivered",
+    "cancelled": "Cancelled",
+    "processing": "Processing",
+    "shipped": "Shipped",
+    "order_products": "Order Products",
+    "order_completed": "Order Completed",
+    "thank_you_message": "Thank you for your purchase You can view your order in  \n  'My Orders' section.",
+    "your_order_delivered": "Your order is delivered",
+    "rate_product_message": "Rate product to get 5 points for collect.",
+    "rate_order": "Rate Order",
+    "order_id": "Order ID",
+    "payment_method": "Payment Method",
+    "delivery_address": "Delivery Address"
+  },
+
+  "checkout": {
+    "checkout": "Checkout",
+    "shipping_address": "Shipping Address",
+    "payment_method": "Payment Method",
+    "order_summary": "Order Summary",
+    "place_order": "Place Order",
+    "cash_on_delivery": "Cash on Delivery",
+    "credit_card": "Credit Card",
+    "select_address": "Select Address",
+    "add_new_address": "Add New Address"
+  },
+
+  "addresses": {
+    "my_addresses": "My Addresses",
+    "add_address": "Add Address",
+    "edit_address": "Edit Address",
+    "delete_address": "Delete Address",
+    "street": "Street",
+    "city": "City",
+    "state": "State",
+    "country": "Country",
+    "postal_code": "Postal Code",
+    "set_default": "Set as Default",
+    "default_address": "Default Address"
+  },
+
+  "settings": {
+    "settings": "Setting",
+    "language": "Language",
+    "notification": "Notification",
+    "terms_of_use": "Terms of Use",
+    "privacy_policy": "Privacy Policy",
+    "addresses": "Addresses",
+    "theme": "Theme",
+    "dark_mode": "Dark Mode",
+    "light_mode": "Light Mode",
+    "account": "Account",
+    "profile": "Profile",
+    "help": "Help",
+    "about": "About",
+    "version": "Version",
+    "contact_us": "Contact Us"
+  },
+
+  "discover": {
+    "discover": "Discover",
+    "search_products": "Search products...",
+    "recent_searches": "Recent Searches",
+    "popular_searches": "Popular Searches",
+    "no_results": "No results found",
+    "clear_search": "Clear Search"
+  },
+
+  "filter": {
+    "filter": "Filter",
+    "price_range": "Price Range",
+    "brand": "Brand",
+    "category": "Category",
+    "rating": "Rating",
+    "clear_filters": "Clear Filters",
+    "apply_filters": "Apply Filters"
+  },
+
+  "notification": {
+    "notifications": "Notifications",
+    "no_notifications": "No notifications",
+    "mark_all_read": "Mark all as read",
+    "clear_all": "Clear all"
+  },
+
+  "profile": {
+    "profile": "Profile",
+    "edit_profile": "Edit Profile",
+    "personal_info": "Personal Information",
+    "full_name": "Full Name",
+    "phone_number": "Phone Number",
+    "date_of_birth": "Date of Birth",
+    "gender": "Gender",
+    "male": "Male",
+    "female": "Female"
+  },
+
+  "categories": {
+    "women": "Women",
+    "men": "Men",
+    "kids": "Kids",
+    "accessories": "Accessories",
+    "shoes": "Shoes",
+    "bags": "Bags",
+    "jewelry": "Jewelry",
+    "watches": "Watches"
+  },
+
+  "errors": {
+    "network_error": "Network error. Please check your connection.",
+    "server_error": "Server error. Please try again later.",
+    "invalid_credentials": "Invalid email or password",
+    "required_field": "This field is required",
+    "invalid_email": "Invalid email address",
+    "password_mismatch": "Passwords do not match",
+    "weak_password": "Password is too weak"
+  },
+
+  "success_messages": {
+    "login_success": "Login successful",
+    "register_success": "Registration successful",
+    "password_changed": "Password changed successfully",
+    "profile_updated": "Profile updated successfully",
+    "address_added": "Address added successfully",
+    "address_updated": "Address updated successfully",
+    "address_deleted": "Address deleted successfully",
+    "order_placed": "Order placed successfully",
+    "review_submitted": "Review submitted successfully"
+  }
 }

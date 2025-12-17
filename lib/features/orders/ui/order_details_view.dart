@@ -1,4 +1,5 @@
 import 'package:fashion_flutter/core/router/routes_names.dart';
+import 'package:fashion_flutter/core/services/app_localizations.dart';
 import 'package:fashion_flutter/core/services/constants.dart';
 import 'package:fashion_flutter/core/widgets/custom_text_widget.dart';
 import 'package:fashion_flutter/core/widgets/primary_button.dart';
@@ -30,12 +31,19 @@ class OrderDetailsView extends StatelessWidget {
 
           children: [
             headerGap(),
-            ShoppingAppBar(title: "Order Details" , horizontal: 0,),
+            ShoppingAppBar(
+              title: AppLocalizations.orders.orderDetails,
+              horizontal: 0,
+            ),
 
             OrderStatusWidget(),
 
             OrderInfoWidget(order: order),
-            CustomText("Order Products", fontWeight: bold, fontSize: size16),
+            CustomText(
+              AppLocalizations.orders.orderProducts,
+              fontWeight: bold,
+              fontSize: size16,
+            ),
             OrderProductsListview(),
 
             Row(
@@ -45,20 +53,26 @@ class OrderDetailsView extends StatelessWidget {
                     height: 60,
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(8)
+                      borderRadius: BorderRadius.circular(8),
                     ),
-                    child:  Center(
+                    child: Center(
                       child: CustomText(
                         "Go Home",
                         fontSize: size15,
                         fontWeight: bold,
                       ),
                     ),
-                  )
+                  ),
                 ),
-                Expanded(flex: 2, child: PrimaryButton(title: "Rate", onTap: () {
-                  context.pushNamed(rateOrderView) ;
-                },)),
+                Expanded(
+                  flex: 2,
+                  child: PrimaryButton(
+                    title: AppLocalizations.product.rating,
+                    onTap: () {
+                      context.pushNamed(rateOrderView);
+                    },
+                  ),
+                ),
               ],
             ),
           ],

@@ -1,3 +1,4 @@
+import 'package:fashion_flutter/core/services/app_localizations.dart';
 import 'package:fashion_flutter/core/services/constants.dart';
 import 'package:fashion_flutter/core/widgets/custom_text_widget.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,8 @@ class ShowAllWidget extends StatelessWidget {
           CustomText(title, fontSize: size20, fontWeight: bold),
           Spacer(),
           CustomText(
-            "Show all",
+            AppLocalizations.common.showAll,
+
             fontSize: 10,
             fontWeight: normal,
           ),

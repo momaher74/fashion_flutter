@@ -1,3 +1,4 @@
+import 'package:fashion_flutter/core/services/app_localizations.dart';
 import 'package:fashion_flutter/core/services/constants.dart';
 import 'package:fashion_flutter/core/widgets/custom_text_widget.dart';
 import 'package:fashion_flutter/core/widgets/custome_text_form_filed_widget.dart';
@@ -22,31 +23,37 @@ class LoginView extends StatelessWidget {
             headerGap(),
             Gap(60),
             CustomText(
-              "Log into \nyour account",
+              AppLocalizations.auth.logIntoAccount,
               fontSize: size25,
               fontWeight: bold,
             ),
             Gap(60),
 
-            CustomTextFormField(underLine: true, hintText: "Email address"),
+            CustomTextFormField(
+              underLine: true,
+              hintText: AppLocalizations.auth.emailAddress,
+            ),
 
-            CustomTextFormField(hintText: "Password", underLine: true),
+            CustomTextFormField(
+              hintText: AppLocalizations.common.password,
+              underLine: true,
+            ),
 
             Align(
               alignment: Alignment.topRight,
               child: CustomText(
-                "Forgot Password?",
+                AppLocalizations.auth.forgotPassword,
                 fontSize: 10,
                 fontWeight: bold,
               ),
             ),
 
-            PrimaryButton(title: "Login", onTap: () {}),
+            PrimaryButton(title: AppLocalizations.auth.login, onTap: () {}),
             Gap(30),
 
             Center(
               child: CustomText(
-                "or log in with",
+                AppLocalizations.auth.orLogInWith,
                 fontWeight: bold,
                 fontSize: 14,
               ),
@@ -55,8 +62,8 @@ class LoginView extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-               SocialIconWidget(type: "apple"),
-               SocialIconWidget(type: "google"),
+                SocialIconWidget(type: "apple"),
+                SocialIconWidget(type: "google"),
               ],
             ),
           ],

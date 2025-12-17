@@ -1,3 +1,4 @@
+import 'package:fashion_flutter/core/services/app_localizations.dart';
 import 'package:fashion_flutter/features/auth/ui/view/widgets/social_icon_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -22,25 +23,39 @@ class RegisterView extends StatelessWidget {
             headerGap(),
             Gap(40),
             CustomText(
-              "Create \nyour account",
+              AppLocalizations.auth.createAccount,
               fontSize: size25,
               fontWeight: bold,
             ),
             Gap(30),
 
-            CustomTextFormField(underLine: true, hintText: "Enter your name"),
-            CustomTextFormField(underLine: true, hintText: "Email address"),
+            CustomTextFormField(
+              underLine: true,
+              hintText: AppLocalizations.common.name,
+            ),
+            CustomTextFormField(
+              underLine: true,
+              hintText: AppLocalizations.auth.emailAddress,
+            ),
 
-            CustomTextFormField(hintText: "Password", underLine: true ,obscureText: true,),
-            CustomTextFormField(hintText: "Confirm Password", underLine: true ,obscureText: true,),
+            CustomTextFormField(
+              hintText: AppLocalizations.common.password,
+              underLine: true,
+              obscureText: true,
+            ),
+            CustomTextFormField(
+              hintText: AppLocalizations.common.confirmPassword,
+              underLine: true,
+              obscureText: true,
+            ),
             Gap(30),
 
-            PrimaryButton(title: "Register", onTap: () {}),
+            PrimaryButton(title: AppLocalizations.auth.register, onTap: () {}),
             Gap(10),
 
             Center(
               child: CustomText(
-                "or sign up with",
+                AppLocalizations.auth.orSignUpWith,
                 fontWeight: bold,
                 fontSize: 14,
               ),

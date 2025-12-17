@@ -12,81 +12,92 @@ class CustomDrawerWidget extends StatelessWidget {
     return Container(
       color: Colors.white,
       padding: const EdgeInsets.only(top: 60, left: 20, right: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // User Profile Section
-          Row(
-            children: [
-              CircleAvatar(
-                radius: 30,
-                backgroundColor: Colors.grey[300],
-                child: Icon(
-                  PhosphorIcons.user(PhosphorIconsStyle.bold),
-                  size: 30,
-                  color: Colors.grey[600],
-                ),
-              ),
-              const Gap(15),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CustomText("Welcome Back!", fontSize: 16, fontWeight: bold),
-                  const Gap(5),
-                  CustomText(
-                    "user@email.com",
-                    fontSize: 12,
-                    color: Colors.grey,
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+
+          children: [
+            // User Profile Section
+            const Gap(40),
+
+            Row(
+              children: [
+                CircleAvatar(
+                  radius: 30,
+                  backgroundColor: Colors.grey[300],
+                  child: Icon(
+                    PhosphorIcons.user(PhosphorIconsStyle.bold),
+                    size: 30,
+                    color: Colors.grey[600],
                   ),
-                ],
-              ),
-            ],
-          ),
-          const Gap(40),
+                ),
+                const Gap(15),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CustomText("Welcome Back!", fontSize: 16, fontWeight: bold),
+                    const Gap(5),
+                    CustomText(
+                      "user@email.com",
+                      fontSize: 12,
+                      color: Colors.grey,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            const Gap(80),
 
-          // Menu Items
-          _DrawerMenuItem(
-            icon: PhosphorIcons.house(PhosphorIconsStyle.bold),
-            title: "Home",
-            onTap: () {},
-          ),
-          _DrawerMenuItem(
-            icon: PhosphorIcons.shoppingCart(PhosphorIconsStyle.bold),
-            title: "My Orders",
-            onTap: () {},
-          ),
-          _DrawerMenuItem(
-            icon: PhosphorIcons.heart(PhosphorIconsStyle.bold),
-            title: "Wishlist",
-            onTap: () {},
-          ),
-          _DrawerMenuItem(
-            icon: PhosphorIcons.mapPin(PhosphorIconsStyle.bold),
-            title: "Addresses",
-            onTap: () {},
-          ),
-          _DrawerMenuItem(
-            icon: PhosphorIcons.user(PhosphorIconsStyle.bold),
-            title: "Profile",
-            onTap: () {},
-          ),
-          _DrawerMenuItem(
-            icon: PhosphorIcons.gear(PhosphorIconsStyle.bold),
-            title: "Settings",
-            onTap: () {},
-          ),
+            // Menu Items
+            _DrawerMenuItem(
+              icon: PhosphorIcons.houseLine(PhosphorIconsStyle.bold),
+              title: "Home",
+              onTap: () {},
+            ),
+            _DrawerMenuItem(
+              icon: PhosphorIcons.bag(PhosphorIconsStyle.bold),
+              title: "Orders",
+              onTap: () {},
+            ),
+            _DrawerMenuItem(
+              icon: PhosphorIcons.heart(PhosphorIconsStyle.bold),
+              title: "Wishlist",
+              onTap: () {},
+            ),
 
-          const Spacer(),
+            _DrawerMenuItem(
+              icon: PhosphorIcons.bell(PhosphorIconsStyle.bold),
+              title: "Notifications",
+              onTap: () {},
+            ),
+            _DrawerMenuItem(
+              icon: PhosphorIcons.mapPin(PhosphorIconsStyle.bold),
+              title: "Addresses",
+              onTap: () {},
+            ),
+            _DrawerMenuItem(
+              icon: PhosphorIcons.user(PhosphorIconsStyle.bold),
+              title: "Profile",
+              onTap: () {},
+            ),
+            _DrawerMenuItem(
+              icon: PhosphorIcons.gear(PhosphorIconsStyle.bold),
+              title: "Settings",
+              onTap: () {},
+            ),
 
-          // Logout Button
-          _DrawerMenuItem(
-            icon: PhosphorIcons.signOut(PhosphorIconsStyle.bold),
-            title: "Logout",
-            onTap: () {},
-            isLogout: true,
-          ),
-          const Gap(40),
-        ],
+            // const Spacer(),
+            //
+            // // Logout Button
+            // _DrawerMenuItem(
+            //   icon: PhosphorIcons.signOut(PhosphorIconsStyle.bold),
+            //   title: "Logout",
+            //   onTap: () {},
+            //   isLogout: true,
+            // ),
+            // const Gap(40),
+          ],
+        ),
       ),
     );
   }
@@ -117,8 +128,8 @@ class _DrawerMenuItem extends StatelessWidget {
             const Gap(20),
             CustomText(
               title,
-              fontSize: 16,
-              fontWeight: normal,
+              fontSize: 13,
+              fontWeight: bold,
               color: isLogout ? Colors.red : Colors.black,
             ),
           ],

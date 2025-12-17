@@ -1,13 +1,10 @@
 import 'package:fashion_flutter/core/services/constants.dart';
-import 'package:fashion_flutter/core/widgets/shared_app_bar.dart';
-import 'package:fashion_flutter/features/orders/ui/widgets/order_info_widget.dart';
+import 'package:fashion_flutter/core/widgets/shopping_app_bar.dart';
 import 'package:fashion_flutter/features/orders/ui/widgets/order_item_widget.dart';
-import 'package:fashion_flutter/features/orders/ui/widgets/order_products_listview.dart';
 import 'package:fashion_flutter/features/orders/ui/widgets/orders_header_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import '../data/models/order_model.dart';
 
 class OrdersView extends StatelessWidget {
   const OrdersView({super.key});
@@ -21,7 +18,7 @@ class OrdersView extends StatelessWidget {
           spacing: verticalSpace,
           children: [
             headerGap(),
-            SharedAppBar(title: "My Orders"),
+            ShoppingAppBar(title: "My Orders"),
             Gap(5),
             OrdersHeaderWidget(),
 
