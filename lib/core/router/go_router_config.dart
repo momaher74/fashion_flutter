@@ -1,3 +1,4 @@
+import 'package:fashion_flutter/features/setting/ui/view/setting_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -7,6 +8,7 @@ import '../../features/auth/ui/view/login_view.dart';
 import '../../features/auth/ui/view/otp_view.dart';
 import '../../features/auth/ui/view/register_view.dart';
 import '../../features/auth/ui/view/reset_view.dart';
+import '../../features/notification/ui/view/notification_view.dart';
 import 'routes_names.dart';
 import '../../features/splash/splash_view.dart';
 import '../../features/layout/ui/view/layout_view.dart';
@@ -68,7 +70,7 @@ final GoRouter router = GoRouter(
       path: splashView,
       name: splashView,
       pageBuilder: (context, state) =>
-          _fadeSlidePage(state: state, child: const SplashView()),
+          _fadeSlidePage(state: state, child: const SettingView()),
     ),
 
     /// Layout
