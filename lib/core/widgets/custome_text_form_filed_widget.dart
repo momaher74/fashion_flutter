@@ -20,6 +20,7 @@ class CustomTextFormField extends StatefulWidget {
     this.obscureText = false,
     this.enabled = true,
     this.readOnly = false,
+    this.underLine = false,
     this.maxLines = 1,
     this.minLines,
     this.maxLength,
@@ -51,6 +52,7 @@ class CustomTextFormField extends StatefulWidget {
   final bool obscureText;
   final bool enabled;
   final bool readOnly;
+  final bool underLine;
 
   final int maxLines;
   final int? minLines;
@@ -80,6 +82,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     final theme = Theme.of(context);
 
     return TextFormField(
+      cursorColor: Colors.black,
       controller: widget.controller,
       focusNode: widget.focusNode,
       initialValue: widget.controller == null ? widget.initialValue : null,
@@ -120,13 +123,11 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         contentPadding:
             widget.contentPadding ??
             const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-        border: _outlineBorder(),
-        enabledBorder: _outlineBorder(),
-        focusedBorder: _outlineBorder(
-          color: theme.primaryColor,
-        ),
-        errorBorder: _outlineBorder(color: Colors.red),
-        focusedErrorBorder: _outlineBorder(color: Colors.red),
+        border: widget.underLine ? _underLineBorder(): _outlineBorder(),
+        enabledBorder:  widget.underLine ? _underLineBorder(): _outlineBorder(),
+        focusedBorder:  widget.underLine ? _underLineBorder(): _outlineBorder() ,
+        errorBorder: widget.underLine ? _underLineBorder(color: Colors.red): _outlineBorder(color: Colors.red),
+        focusedErrorBorder: widget.underLine ? _underLineBorder(color: Colors.red): _outlineBorder(color: Colors.red),
       ),
     );
   }
@@ -137,6 +138,13 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       borderSide: BorderSide(
         color: color ?? Colors.grey.shade300,
       ),
+    );
+  }
+
+
+  UnderlineInputBorder _underLineBorder({Color? color}) {
+    return UnderlineInputBorder(
+
     );
   }
 }

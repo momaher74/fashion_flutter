@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/auth/ui/view/change_password_view.dart';
+import '../../features/auth/ui/view/forget_password_view.dart';
+import '../../features/auth/ui/view/login_view.dart';
+import '../../features/auth/ui/view/otp_view.dart';
+import '../../features/auth/ui/view/register_view.dart';
+import '../../features/auth/ui/view/reset_view.dart';
 import 'routes_names.dart';
 import '../../features/splash/splash_view.dart';
 import '../../features/layout/ui/view/layout_view.dart';
