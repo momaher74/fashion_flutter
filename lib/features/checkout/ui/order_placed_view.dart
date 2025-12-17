@@ -21,7 +21,7 @@ class OrderPlacedView extends StatelessWidget {
           spacing: verticalSpace,
           children: [
             headerGap(),
-            ShoppingAppBar(title: "Order placed") ,
+            ShoppingAppBar(title: "Order placed" , horizontal: 0,) ,
             Gap(10),
             DottedLineWidget() ,
             CustomText("Order Completed") ,

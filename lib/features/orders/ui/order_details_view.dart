@@ -30,7 +30,7 @@ class OrderDetailsView extends StatelessWidget {
 
           children: [
             headerGap(),
-            ShoppingAppBar(title: "Order Details"),
+            ShoppingAppBar(title: "Order Details" , horizontal: 0,),
 
             OrderStatusWidget(),
 
