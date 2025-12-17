@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/auth/ui/view/login_view.dart';
+import '../../features/auth/ui/view/register_view.dart';
 import 'routes_names.dart';
 import '../../features/splash/splash_view.dart';
 import '../../features/layout/ui/view/layout_view.dart';
@@ -62,7 +64,7 @@ final GoRouter router = GoRouter(
       path: splashView,
       name: splashView,
       pageBuilder: (context, state) =>
-          _fadeSlidePage(state: state, child: const SplashView()),
+          _fadeSlidePage(state: state, child: const RegisterView()),
     ),
 
     /// Layout

@@ -91,6 +91,7 @@ class AddressCard extends StatelessWidget {
                 width: 70,
                 height: 40,
                 fontSize: 12,
+                horizontal: 0,
                 onTap: () {
                   context.pushNamed(orderPlacedView);
                 },
