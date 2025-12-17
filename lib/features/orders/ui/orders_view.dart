@@ -1,5 +1,6 @@
 import 'package:fashion_flutter/core/services/constants.dart';
 import 'package:fashion_flutter/core/widgets/shared_app_bar.dart';
+import 'package:fashion_flutter/features/orders/ui/widgets/order_info_widget.dart';
 import 'package:fashion_flutter/features/orders/ui/widgets/order_item_widget.dart';
 import 'package:fashion_flutter/features/orders/ui/widgets/order_products_listview.dart';
 import 'package:fashion_flutter/features/orders/ui/widgets/orders_header_widget.dart';
@@ -23,7 +24,19 @@ class OrdersView extends StatelessWidget {
             SharedAppBar(title: "My Orders"),
             Gap(5),
             OrdersHeaderWidget(),
-            OrderProductsListview(),
+
+            Expanded(
+              child: ListView.separated(
+                padding: EdgeInsets.zero,
+                itemBuilder: (context, index) {
+                  return OrderItemWidget(order: orders[index]);
+                },
+                separatorBuilder: (context, index) {
+                  return Gap(10);
+                },
+                itemCount: orders.length,
+              ),
+            ),
           ],
         ),
       ),

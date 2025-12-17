@@ -74,7 +74,7 @@ class AddressCard extends StatelessWidget {
           Row(
             children: [
               GestureDetector(
-                onTap: (){
+                onTap: () {
                   context.pushNamed(editAddressView);
                 },
                 child: Row(
@@ -90,9 +90,10 @@ class AddressCard extends StatelessWidget {
                 title: "select",
                 width: 70,
                 height: 40,
-                fontSize: 12, onTap: () {
-
-              },
+                fontSize: 12,
+                onTap: () {
+                  context.pushNamed(orderPlacedView);
+                },
               ),
             ],
           ),

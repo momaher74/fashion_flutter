@@ -1,3 +1,4 @@
+import 'package:fashion_flutter/core/router/routes_names.dart';
 import 'package:fashion_flutter/core/services/constants.dart';
 import 'package:fashion_flutter/core/widgets/primary_button.dart';
 import 'package:fashion_flutter/core/widgets/shared_app_bar.dart';
@@ -24,7 +25,7 @@ class RateOrderView extends StatelessWidget {
             children: [
               headerGap(),
 
-              SharedAppBar(title: "Rate Product"),
+              SharedAppBar(title: "Rate Order"),
               Gap(10)  ,
 
               RateHeaderWidget(),
@@ -35,6 +36,8 @@ class RateOrderView extends StatelessWidget {
               Gap(40)  ,
               
               PrimaryButton(title: "Submit Review", onTap: () {
+
+                context.pushReplacementNamed(layoutView);
 
               },)
 

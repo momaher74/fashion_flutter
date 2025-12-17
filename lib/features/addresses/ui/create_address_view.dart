@@ -1,6 +1,7 @@
 import 'package:fashion_flutter/core/widgets/custom_text_widget.dart';
 import 'package:fashion_flutter/core/widgets/custome_text_form_filed_widget.dart';
 import 'package:fashion_flutter/core/widgets/primary_button.dart';
+import 'package:fashion_flutter/core/widgets/shopping_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -19,7 +20,7 @@ class AddAddressView extends StatelessWidget {
           children: [
             headerGap()  ,
 
-            CustomText("Add New Address" , fontWeight: bold, fontSize: size18,) ,
+       ShoppingAppBar(title: "Add New Address") ,
 
             CustomTextFormField(hintText: "username",) ,
             CustomTextFormField(hintText: "phone number",) ,

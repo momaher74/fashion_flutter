@@ -1,3 +1,4 @@
+import 'package:fashion_flutter/core/widgets/shopping_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -67,12 +68,7 @@ class _UpdateAddressViewState extends State<EditAddressView> {
           children: [
             headerGap(),
 
-            CustomText(
-              "Edit Address",
-              fontWeight: bold,
-              fontSize: size18,
-            ),
-
+            ShoppingAppBar(title: "Edit Address",) ,
             CustomTextFormField(
               hintText: "Username",
               controller: usernameController,
