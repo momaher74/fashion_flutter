@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:fashion_flutter/core/router/routes_names.dart';
 import 'package:fashion_flutter/core/services/app_localizations.dart';
 import 'package:flutter/material.dart';
@@ -64,11 +65,14 @@ class CartPaymentInfoWidget extends StatelessWidget {
           ),
           Gap(10),
 
-          PrimaryButton(
-            title: AppLocalizations.cart.checkout,
-            onTap: () {
-              context.pushNamed(myAddressesView);
-            },
+          FadeInUpBig(
+            duration: Duration(milliseconds: 800),
+            child: PrimaryButton(
+              title: AppLocalizations.cart.checkout,
+              onTap: () {
+                context.pushNamed(myAddressesView);
+              },
+            ),
           ),
           Gap(10),
         ],

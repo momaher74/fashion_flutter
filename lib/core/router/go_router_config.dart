@@ -70,7 +70,7 @@ final GoRouter router = GoRouter(
       path: splashView,
       name: splashView,
       pageBuilder: (context, state) =>
-          _fadeSlidePage(state: state, child: const SplashView()),
+          _fadeSlidePage(state: state, child: const LoginView()),
     ),
 
     /// Layout
