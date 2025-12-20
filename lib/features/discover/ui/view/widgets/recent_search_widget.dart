@@ -1,7 +1,6 @@
 import 'package:fashion_flutter/core/widgets/custom_text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../../../../../core/services/constants.dart';
 

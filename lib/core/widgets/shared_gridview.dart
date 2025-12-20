@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 import '../services/constants.dart';
 
 class SharedProductsGridView extends StatelessWidget {
-  const SharedProductsGridView({super.key,  this.gridProducts });
+  const SharedProductsGridView({super.key,  this.gridProducts, this.ratio  });
   final List<ProductModel>  ? gridProducts  ;
+  final double ? ratio ;
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
@@ -16,7 +17,7 @@ class SharedProductsGridView extends StatelessWidget {
       itemCount: gridProducts !=null ? gridProducts!.length : products.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          childAspectRatio: .65,
+          childAspectRatio: ratio ??.65,
           mainAxisSpacing: 30
       ),
       itemBuilder: (BuildContext context, int index) {

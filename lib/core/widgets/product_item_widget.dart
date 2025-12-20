@@ -80,17 +80,17 @@ class ProductItem extends StatelessWidget {
                   fontWeight: bold,
                 ),
                 if (product.finalPrice != product.price)
-                  Expanded(
-                    child: CustomText(
-                      product.price.toString(),
-                      fontSize: 16,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      fontWeight: normal,
-                      color: Colors.grey,
-                      lineThrough: true,
-                    ),
+                  CustomText(
+                    product.price.toString(),
+                    fontSize: 16,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    fontWeight: normal,
+                    color: Colors.grey,
+                    lineThrough: true,
                   ),
+                
+                CustomText(product.currency , fontSize: 8, fontWeight: bold,)
               ],
             ),
           ],

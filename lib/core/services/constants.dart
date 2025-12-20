@@ -282,3 +282,5 @@ Color getOrderStatusColor({required String status}) {
 
 
 const Color starColor = Color(0xff508A7B) ;
+
+List<String>  discoverImages = [] ;

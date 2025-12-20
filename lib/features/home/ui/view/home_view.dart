@@ -4,6 +4,7 @@ import 'package:fashion_flutter/core/widgets/custom_text_widget.dart';
 import 'package:fashion_flutter/features/home/data/repos/home_repo.dart';
 import 'package:fashion_flutter/features/home/ui/manager/home_cubit.dart';
 import 'package:fashion_flutter/features/home/ui/view/widgets/custom_drawer_widget.dart';
+import 'package:fashion_flutter/features/home/ui/view/widgets/home_shimmer.dart';
 import 'package:fashion_flutter/features/home/ui/view/widgets/home_view_body_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -71,7 +72,7 @@ class _HomeViewState extends State<HomeView> {
                   return Skeletonizer(
                     enabled: true,
                     enableSwitchAnimation: true,
-                    child: HomeViewBodyWidget(data: null),
+                    child:HomeShimmer(),
                   );
                 }
 

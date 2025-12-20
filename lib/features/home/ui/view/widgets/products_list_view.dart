@@ -18,7 +18,7 @@ class ProductsListView extends StatelessWidget {
     return Column(
       spacing: 20,
       children: [
-        ShowAllWidget(title: "Products"),
+        ShowAllWidget(title: "Popular"),
         SizedBox(
           height: 230,
           child: ListView.builder(

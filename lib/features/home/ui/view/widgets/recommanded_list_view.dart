@@ -1,63 +1,27 @@
 import 'package:fashion_flutter/core/models/product_model.dart';
 import 'package:fashion_flutter/core/services/constants.dart';
-import 'package:fashion_flutter/core/widgets/cached_network_image.dart';
-import 'package:fashion_flutter/core/widgets/custom_text_widget.dart';
+import 'package:fashion_flutter/core/widgets/shared_gridview.dart';
 import 'package:fashion_flutter/core/widgets/show_all_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
-
-import '../../../data/models/home_model.dart';
 
 class RecommendedListView extends StatelessWidget {
   const RecommendedListView({super.key, required this.recommendedProducts});
+
   final List<ProductModel> recommendedProducts;
-
-
 
   @override
   Widget build(BuildContext context) {
+    recommendedProducts.forEach((link){
+      if(!discoverImages.contains(link.images.last)){
+        discoverImages.add(link.images.last);
+      }
+    }) ;
     return Column(
       spacing: 20,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ShowAllWidget(title:  "Recommended" ,),
-        Container(
-          height: 70,
-          margin: EdgeInsets.symmetric(horizontal: 10),
-          width: double.infinity,
-          
-          child: ListView.separated(
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) {
-              final ProductModel product = recommendedProducts[index];
-              return Container(
-                padding: EdgeInsets.only(right: 10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: Colors.grey.withValues(alpha: .18)),
-                ),
-                child: Row(
-                  children: [
-                    CustomCachedImage(imageUrl: product.images.last, width: 60 , fit: BoxFit.cover,height: 70,borderRadius: BorderRadius.circular(10),),
-                    Gap(10),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                       CustomText(   product.name , fontSize: size18, fontWeight: bold,),
-                       CustomText( product.price.toString()),
-                      ],
-                    ),
-                  ],
-                ),
-              );
-            },
-            separatorBuilder: (context, index) {
-              return SizedBox(width: 20);
-            },
-            itemCount: recommendedProducts.length,
-          ),
-        ),
+        ShowAllWidget(title: "Recommended"),
+        SharedProductsGridView(gridProducts: recommendedProducts,ratio: .75,),
       ],
     );
   }
