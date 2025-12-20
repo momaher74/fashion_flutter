@@ -3,6 +3,8 @@ import 'package:fashion_flutter/core/widgets/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
+import '../../../data/models/home_model.dart';
+
 class ProductGridView extends StatelessWidget {
   final List<ProductModel> products;
 
@@ -27,7 +29,7 @@ class ProductGridView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomCachedImage(
-                  imageUrl: product.imageUrl,
+                  imageUrl: product.images.first,
                   height: 180,
                   width: double.infinity,
                   borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),

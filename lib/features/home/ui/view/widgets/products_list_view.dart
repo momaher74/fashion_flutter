@@ -7,10 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../../../../../core/widgets/product_item_widget.dart';
+import '../../../data/models/home_model.dart';
 
 class ProductsListView extends StatelessWidget {
-  const ProductsListView({super.key});
+  const ProductsListView({super.key, required this.popularProducts});
 
+  final List<ProductModel> popularProducts;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -21,9 +23,9 @@ class ProductsListView extends StatelessWidget {
           height: 230,
           child: ListView.builder(
             itemBuilder: (context, index) {
-              return ProductItem(product: products[index]);
+              return ProductItem(product: popularProducts[index]);
             },
-            itemCount: products.length,
+            itemCount: popularProducts.length,
             scrollDirection: Axis.horizontal,
           ),
         ),

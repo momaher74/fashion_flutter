@@ -6,8 +6,13 @@ import 'package:fashion_flutter/core/widgets/show_all_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-class RecommandedListView extends StatelessWidget {
-  const RecommandedListView({super.key});
+import '../../../data/models/home_model.dart';
+
+class RecommendedListView extends StatelessWidget {
+  const RecommendedListView({super.key, required this.recommendedProducts});
+  final List<ProductModel> recommendedProducts;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +20,7 @@ class RecommandedListView extends StatelessWidget {
       spacing: 20,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ShowAllWidget(title:  "Recommanded" ,),
+        ShowAllWidget(title:  "Recommended" ,),
         Container(
           height: 70,
           margin: EdgeInsets.symmetric(horizontal: 10),
@@ -24,7 +29,7 @@ class RecommandedListView extends StatelessWidget {
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
-              final ProductModel product = products[index];
+              final ProductModel product = recommendedProducts[index];
               return Container(
                 padding: EdgeInsets.only(right: 10),
                 decoration: BoxDecoration(
@@ -33,7 +38,7 @@ class RecommandedListView extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    CustomCachedImage(imageUrl: product.imageUrl, width: 60 , fit: BoxFit.cover,height: 70,borderRadius: BorderRadius.circular(10),),
+                    CustomCachedImage(imageUrl: product.images.last, width: 60 , fit: BoxFit.cover,height: 70,borderRadius: BorderRadius.circular(10),),
                     Gap(10),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -50,7 +55,7 @@ class RecommandedListView extends StatelessWidget {
             separatorBuilder: (context, index) {
               return SizedBox(width: 20);
             },
-            itemCount: products.length,
+            itemCount: recommendedProducts.length,
           ),
         ),
       ],

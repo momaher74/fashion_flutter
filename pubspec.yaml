@@ -65,8 +65,9 @@ dependencies:
   dotted_line: ^3.2.3
   flutter_otp_kit: ^3.1.1
   skeletonizer: ^2.1.2
-  dartz: 
-  
+  dartz:
+  dots_indicator:
+  slide_countdown: ^2.0.2
   
   
 

@@ -5,6 +5,7 @@ import 'package:lottie/lottie.dart';
 
 import '../../../../core/services/constants.dart';
 import '../../../../core/widgets/custom_text_widget.dart';
+import '../../../home/data/models/home_model.dart';
 
 class ProductHeaderWidget extends StatelessWidget {
   const ProductHeaderWidget({super.key, required this.productModel});
@@ -31,12 +32,12 @@ class ProductHeaderWidget extends StatelessWidget {
               ),
               Spacer(),
               CustomText(
-                productModel.discountPrice.toString(),
+                productModel.finalPrice.toString(),
                 fontWeight: bold,
                 fontSize: size18,
               ),
               if (productModel.price !=
-                  productModel.discountPrice)
+                  productModel.finalPrice)
                 Padding(
                   padding: EdgeInsets.all(4),
                   child: CustomText(

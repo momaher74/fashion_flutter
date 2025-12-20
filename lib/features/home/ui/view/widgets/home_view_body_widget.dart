@@ -1,3 +1,5 @@
+import 'package:fashion_flutter/features/home/data/models/home_model.dart';
+import 'package:fashion_flutter/features/home/ui/view/widgets/offers_widget.dart';
 import 'package:fashion_flutter/features/home/ui/view/widgets/products_list_view.dart';
 import 'package:fashion_flutter/features/home/ui/view/widgets/recommanded_list_view.dart';
 import 'package:flutter/material.dart';
@@ -10,8 +12,8 @@ import 'collecation_container.dart';
 import 'collections_list_view.dart';
 
 class HomeViewBodyWidget extends StatelessWidget {
-  const HomeViewBodyWidget({super.key});
-
+  const HomeViewBodyWidget({super.key, required this.data});
+  final HomeData ? data ;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -22,15 +24,11 @@ class HomeViewBodyWidget extends StatelessWidget {
               spacing: 20,
               children: [
                 const Gap(2),
-                const CategoryListViewWidget(),
-                const BannerWidget(),
-                const ProductsListView(),
-                CollectionContainer(
-                  title: 'New Collection',
-                  subTitle: 'For SLIM\n& BEAUTY',
-                  imageUrl: productImages[4],
-                ),
-                const RecommandedListView(),
+                 CategoryListViewWidget(categories: data?.categories ??[],),
+                 BannerWidget(banners:data?.banners??[] ,),
+                 ProductsListView(popularProducts: data?.popularProducts ?? [],),
+                 RecommendedListView(recommendedProducts:data ?.recommendedProducts?? [],),
+                OffersWidget(offers: data?.offers ??[]) ,
                 const Gap(10),
                 const CollectionsListView(),
                 const Gap(60),

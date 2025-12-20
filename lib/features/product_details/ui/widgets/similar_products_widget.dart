@@ -11,34 +11,35 @@ class SimilarProductsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomText(
-            AppLocalizations.product.similarProducts,
-            fontWeight: bold,
-            fontSize: size16,
-          ),
-          Gap(30),
-          SizedBox(
-            height: 250,
-            width: double.infinity,
-            child: ListView.separated(
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-                return ProductItem(product: products[index]);
-              },
-              separatorBuilder: (context, index) {
-                return Gap(10);
-              },
-              itemCount: products.length,
-            ),
-          ),
-        ],
-      ),
-    );
+    return Container();
+    // return Padding(
+    //   padding: EdgeInsets.symmetric(horizontal: 20),
+    //   child: Column(
+    //     crossAxisAlignment: CrossAxisAlignment.start,
+    //     children: [
+    //       CustomText(
+    //         AppLocalizations.product.similarProducts,
+    //         fontWeight: bold,
+    //         fontSize: size16,
+    //       ),
+    //       Gap(30),
+    //       SizedBox(
+    //         height: 250,
+    //         width: double.infinity,
+    //         child: ListView.separated(
+    //           shrinkWrap: true,
+    //           scrollDirection: Axis.horizontal,
+    //           itemBuilder: (context, index) {
+    //             return ProductItem(product: products[index]);
+    //           },
+    //           separatorBuilder: (context, index) {
+    //             return Gap(10);
+    //           },
+    //           itemCount: products.length,
+    //         ),
+    //       ),
+    //     ],
+    //   ),
+    // );
   }
 }

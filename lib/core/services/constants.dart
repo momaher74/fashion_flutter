@@ -6,6 +6,8 @@ import 'package:fashion_flutter/features/orders/data/models/order_model.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
+import '../../features/home/data/models/home_model.dart';
+
 const size14 = 14.0;
 const size15 = 15.0;
 const size16 = 16.0;
@@ -44,54 +46,90 @@ final List<ProductModel> products = [
     id: '1',
     name: 'Stylish Jacket',
     description: 'A trendy jacket for all seasons.',
+    images: [productImages[0]],
     price: 59.99,
-    imageUrl: productImages[0],
-    isFavourite: false,
-    discountPrice: 50,
+    finalPrice: 50.0,
     rate: 4,
+    isFavourite: false,
+    currency: 'USD',
+    offerApplied: OfferAppliedModel(
+      title: 'Winter Sale',
+      type: 'percentage',
+      value: 20,
+      discount: 9.99,
+    ),
+    sizes: [
+      SizeModel(id: 's1', name: 'S'),
+      SizeModel(id: 's2', name: 'M'),
+    ],
+    colors: [
+      ColorModel(id: 'c1', name: 'Red', hexCode: '#FF0000'),
+      ColorModel(id: 'c2', name: 'Blue', hexCode: '#0000FF'),
+    ],
+    category: CategoryMiniModel(
+      id: 'cat1',
+      name: 'Jackets',
+      nameMultilingual: MultilingualModel(ar: 'جاكيت', en: 'Jackets'),
+    ),
+    subCategory: CategoryMiniModel(
+      id: 'sub1',
+      name: 'Winter Jackets',
+      nameMultilingual: MultilingualModel(ar: 'جاكيت شتوي', en: 'Winter Jackets'),
+    ),
+    variants: [
+      VariantModel(sizeId: 's1', colorId: 'c1', stock: 10, price: 59.99, finalPrice: 50.0),
+      VariantModel(sizeId: 's2', colorId: 'c2', stock: 5, price: 59.99, finalPrice: 50.0),
+    ],
+    isActive: true,
+    createdAt: DateTime.now(),
+    updatedAt: DateTime.now(),
   ),
+
   ProductModel(
     id: '2',
     name: 'Casual Shirt',
     description: 'Perfect for everyday wear.',
+    images: productImages,
     price: 29.99,
-    imageUrl: productImages[1],
-    isFavourite: true,
-    discountPrice: 20,
+    finalPrice: 20.0,
     rate: 4,
-  ),
-  ProductModel(
-    id: '3',
-    name: 'Elegant Dress',
-    description:
-        'Sportswear is no longer under culture, it is no longer indie or cobbled together as it once was. Sport is fashion today. The top is oversized in fit and style, may need to size down.',
-    price: 79.99,
-    imageUrl: productImages[2],
-    isFavourite: false,
-    discountPrice: 60,
-    rate: 4,
-  ),
-  ProductModel(
-    id: '4',
-    name: 'Comfortable Jeans',
-    description: 'Stylish and comfortable denim jeans.',
-    price: 49.99,
-    imageUrl: productImages[3],
     isFavourite: true,
-    discountPrice: 37,
-    rate: 3,
+    currency: 'USD',
+    offerApplied: OfferAppliedModel(
+      title: 'Summer Sale',
+      type: 'percentage',
+      value: 33,
+      discount: 9.99,
+    ),
+    sizes: [
+      SizeModel(id: 's1', name: 'S'),
+      SizeModel(id: 's2', name: 'M'),
+      SizeModel(id: 's3', name: 'L'),
+    ],
+    colors: [
+      ColorModel(id: 'c1', name: 'White', hexCode: '#FFFFFF'),
+      ColorModel(id: 'c2', name: 'Black', hexCode: '#000000'),
+    ],
+    category: CategoryMiniModel(
+      id: 'cat2',
+      name: 'Shirts',
+      nameMultilingual: MultilingualModel(ar: 'قميص', en: 'Shirts'),
+    ),
+    subCategory: CategoryMiniModel(
+      id: 'sub2',
+      name: 'Casual Shirts',
+      nameMultilingual: MultilingualModel(ar: 'قميص كاجوال', en: 'Casual Shirts'),
+    ),
+    variants: [
+      VariantModel(sizeId: 's1', colorId: 'c1', stock: 15, price: 29.99, finalPrice: 20.0),
+      VariantModel(sizeId: 's2', colorId: 'c2', stock: 8, price: 29.99, finalPrice: 20.0),
+    ],
+    isActive: true,
+    createdAt: DateTime.now(),
+    updatedAt: DateTime.now(),
   ),
 
-  ProductModel(
-    id: '5',
-    name: 'Top',
-    description: 'Stylish and comfortable denim jeans.',
-    price: 49.99,
-    imageUrl: productImages[4],
-    isFavourite: true,
-    discountPrice: 49.99,
-    rate: 5,
-  ),
+  // Add more products similarly...
 ];
 
 const List<String> recentSearch = ['Shirt', 'Watch', "Glass"];

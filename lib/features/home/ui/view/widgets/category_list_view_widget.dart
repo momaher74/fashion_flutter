@@ -1,29 +1,15 @@
-import 'package:easy_localization/easy_localization.dart';
+import 'package:fashion_flutter/core/widgets/cached_network_image.dart';
 import 'package:fashion_flutter/core/widgets/custom_text_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:gap/gap.dart';
+
+import '../../../../../core/models/product_model.dart';
 
 class CategoryListViewWidget extends StatelessWidget {
-  const CategoryListViewWidget({super.key});
-
+  const CategoryListViewWidget({super.key, required this.categories});
+  final List<CategoryModel> categories;
   @override
   Widget build(BuildContext context) {
-    final categories = [
-      tr("women"),
-      "men",
-      "kids",
-      "shoes",
-      "bags",
-      "accessories",
-    ];
-    final categoryIcons = [
-      PhosphorIcon(PhosphorIcons.genderFemale()),
-      PhosphorIcon(PhosphorIcons.genderMale()),
-      PhosphorIcon(PhosphorIcons.knife()),
-      PhosphorIcon(PhosphorIcons.sneaker()),
-      PhosphorIcon(PhosphorIcons.bag()),
-      PhosphorIcon(PhosphorIcons.sunglasses()),
-    ];
 
     return SizedBox(
       height: 70,
@@ -38,10 +24,10 @@ class CategoryListViewWidget extends StatelessWidget {
                   color: Colors.grey.shade200,
                   borderRadius: BorderRadius.circular(30),
                 ),
-                child: Center(child: categoryIcons[index]),
+                child: Center(child: CustomCachedImage(imageUrl: categories[index].image , width: 25, height: 25,borderRadius: BorderRadius.circular(50),)),
               ),
-              Spacer(),
-              CustomText(categories[index], fontSize: 10),
+              Gap(5) ,
+              CustomText(categories[index].name, fontSize: 10),
             ],
           );
         },

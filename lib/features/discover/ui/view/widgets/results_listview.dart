@@ -30,7 +30,7 @@ class ResultsListview extends StatelessWidget {
         ),
         childrenDelegate: SliverChildBuilderDelegate(
           (context, index) =>
-              CustomCachedImage(imageUrl: products[index].imageUrl),
+              CustomCachedImage(imageUrl: products[index].images.first),
           childCount: products.length,
         ),
       ),

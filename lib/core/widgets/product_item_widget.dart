@@ -32,7 +32,7 @@ class ProductItem extends StatelessWidget {
               alignment: Alignment.topRight,
               children: [
                 CustomCachedImage(
-                  imageUrl: product.imageUrl,
+                  imageUrl: product.images.first,
                   height: isGrid? 200 :170,
                   width: double.infinity,
                   borderRadius: BorderRadius.circular(10),
@@ -73,13 +73,13 @@ class ProductItem extends StatelessWidget {
               spacing: 8,
               children: [
                 CustomText(
-                  product.discountPrice.toString(),
+                  product.finalPrice.toString(),
                   fontSize: 16,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   fontWeight: bold,
                 ),
-                if (product.discountPrice != product.price)
+                if (product.finalPrice != product.price)
                   Expanded(
                     child: CustomText(
                       product.price.toString(),

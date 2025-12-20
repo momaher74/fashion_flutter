@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../../../core/widgets/animated_divider_widget.dart';
+import '../../home/data/models/home_model.dart';
 import 'widgets/all_images_list_view.dart';
 
 class ProductDetailsView extends StatelessWidget {
@@ -28,8 +29,8 @@ class ProductDetailsView extends StatelessWidget {
           child: Column(
             children: [
               ProductDetailsImageWidget(
-                imageUrl: productModel.imageUrl,
-                isFavourite: productModel.isFavourite,
+                imageUrl: productModel.images.first,
+                isFavourite: true,
               ),
               Container(
                 decoration: BoxDecoration(

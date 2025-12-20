@@ -1,12 +1,15 @@
-import 'package:fashion_flutter/core/services/constants.dart';
 import 'package:fashion_flutter/core/widgets/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 
-
+import '../../../../../core/models/product_model.dart';
+import '../../../data/models/home_model.dart';
 
 class BannerWidget extends StatefulWidget {
-  const BannerWidget({super.key});
+  final List<BannerModel> banners;
+
+  const BannerWidget({super.key, required this.banners});
 
   @override
   State<BannerWidget> createState() => _BannerWidgetState();
@@ -17,15 +20,17 @@ class _BannerWidgetState extends State<BannerWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (widget.banners.isEmpty) return const SizedBox();
+
     return Column(
       children: [
         CarouselSlider.builder(
-          itemCount: productImages.length,
+          itemCount: widget.banners.length,
           itemBuilder: (context, index, realIndex) {
             return ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: CustomCachedImage(
-                imageUrl: productImages[index],
+                imageUrl: widget.banners[index].image,
                 width: double.infinity,
                 height: 170,
                 fit: BoxFit.cover,
@@ -45,29 +50,20 @@ class _BannerWidgetState extends State<BannerWidget> {
           ),
         ),
 
-        const SizedBox(height: 8),
+        const SizedBox(height: 12),
 
-        // Dot indicators
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: productImages.asMap().entries.map((entry) {
-            return GestureDetector(
-              onTap: () => setState(() {
-                _currentIndex = entry.key;
-              }),
-              child: Container(
-                width: 8.0,
-                height: 8.0,
-                margin: const EdgeInsets.symmetric(horizontal: 4.0),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: _currentIndex == entry.key
-                      ? Colors.deepPurple
-                      : Colors.grey[300],
-                ),
-              ),
-            );
-          }).toList(),
+        // Dots indicator
+        DotsIndicator(
+          dotsCount: widget.banners.length,
+          position: _currentIndex.toDouble(),
+          decorator: DotsDecorator(
+            activeColor: Colors.deepPurple,
+            size: const Size.square(8.0),
+            activeSize: const Size(16.0, 8.0),
+            activeShape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(4.0),
+            ),
+          ),
         ),
       ],
     );

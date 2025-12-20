@@ -13,20 +13,19 @@ class CollectionsListView extends StatelessWidget {
     return Column(
       children: [
         ShowAllWidget(title: AppLocalizations.home.collections),
-
         ListView.builder(
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
-          itemCount: 2,
+          itemCount: 1,
           itemBuilder: (context, index) {
-            final List<ProductModel> collections = [products[2], products[4]];
+            final List<ProductModel> collections = [products[0], products[1]];
 
             return Padding(
               padding: const EdgeInsets.only(bottom: 50),
               child: CollectionContainer(
                 title: collections[index].name,
                 subTitle: AppLocalizations.common.description,
-                imageUrl: collections[index].imageUrl,
+                imageUrl: collections[index].images.first,
                 marginPercentage: .01,
               ),
             );

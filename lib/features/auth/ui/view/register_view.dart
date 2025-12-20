@@ -36,9 +36,14 @@ class RegisterView extends StatelessWidget {
           if (state.data != null) {
             LocalDBService localDBService = getIt<LocalDBService>();
 
-            localDBService
-                .setString(tokenKey, state.data!.data.token)
-                .then((v) {});
+            localDBService.setString(
+              accessTokenKey,
+              state.data!.data.accessToken,
+            );
+            localDBService.setString(
+              refreshTokenKey,
+              state.data!.data.refreshToken,
+            );
 
             context.pushReplacementNamed(layoutView);
           }

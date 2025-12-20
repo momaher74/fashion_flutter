@@ -6,6 +6,7 @@ import '../../../../core/models/product_model.dart';
 import '../../../../core/services/constants.dart';
 import '../../../../core/widgets/cached_network_image.dart';
 import '../../../../core/widgets/custom_text_widget.dart';
+import '../../../home/data/models/home_model.dart';
 
 class CartProductsListviewWidget extends StatelessWidget {
   const CartProductsListviewWidget({super.key});
@@ -36,7 +37,7 @@ class CartProductsListviewWidget extends StatelessWidget {
             child: Row(
               children: [
                 CustomCachedImage(
-                  imageUrl: product.imageUrl,
+                  imageUrl: product.images.first,
                   width: 100,
                   height: 140,
                   fit: BoxFit.cover,
@@ -51,7 +52,7 @@ class CartProductsListviewWidget extends StatelessWidget {
                       CustomText(product.name, fontWeight: bold, fontSize: 13),
                       Gap(10),
                       CustomText(
-                        product.discountPrice.toString(),
+                        product.finalPrice.toString(),
                         fontWeight: bold,
                         fontSize: 13,
                       ),
