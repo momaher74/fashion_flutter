@@ -31,18 +31,19 @@ class LoginView extends StatelessWidget {
           if (state.data != null) {
             LocalDBService localDBService = getIt<LocalDBService>();
 
-            localDBService.setString(tokenKey, state.data!.data.token).then((
-              v,
-            ) {
-
-            });
-
-
+            localDBService.setString(
+              accessTokenKey,
+              state.data!.data.accessToken,
+            );
+            localDBService.setString(
+              refreshTokenKey,
+              state.data!.data.refreshToken,
+            );
 
             context.pushReplacementNamed(layoutView);
           }
 
-          if(state.error !=null){
+          if (state.error != null) {
             showError(context: context, message: state.error!.toString());
           }
           // TODO: implement listener

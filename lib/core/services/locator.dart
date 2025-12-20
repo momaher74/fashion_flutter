@@ -24,6 +24,6 @@ Future<void> setupServiceLocator() async {
   );
 
   getIt.registerLazySingleton<AuthRepoImp>(
-    () => AuthRepoImp(apiServices: getIt<ApiServices>()),
+    () => AuthRepoImp( getIt<ApiServices>()),
   );
 }

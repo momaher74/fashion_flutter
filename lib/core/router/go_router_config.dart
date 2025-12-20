@@ -33,27 +33,19 @@ CustomTransitionPage<T> _fadeSlidePage<T>({
     key: state.pageKey,
     child: child,
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      final slideAnimation = Tween<Offset>(
-        begin: const Offset(0, 0),
-        end: Offset.zero,
-      ).animate(
-        CurvedAnimation(
-          parent: animation,
-          curve: Curves.fastEaseInToSlowEaseOut,
-        ),
-      );
+      final slideAnimation =
+          Tween<Offset>(begin: const Offset(0, 0), end: Offset.zero).animate(
+            CurvedAnimation(
+              parent: animation,
+              curve: Curves.fastEaseInToSlowEaseOut,
+            ),
+          );
 
-      final fadeAnimation = Tween<double>(
-        begin: 0,
-        end: 1,
-      ).animate(animation);
+      final fadeAnimation = Tween<double>(begin: 0, end: 1).animate(animation);
 
       return FadeTransition(
         opacity: fadeAnimation,
-        child: SlideTransition(
-          position: slideAnimation,
-          child: child,
-        ),
+        child: SlideTransition(position: slideAnimation, child: child),
       );
     },
   );
@@ -62,6 +54,9 @@ CustomTransitionPage<T> _fadeSlidePage<T>({
 /// --------
 /// GoRouter
 /// --------
+const String loginView = "/login";
+const String registerView = "/register";
+
 final GoRouter router = GoRouter(
   initialLocation: splashView,
   routes: [
@@ -69,6 +64,21 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: splashView,
       name: splashView,
+      pageBuilder: (context, state) =>
+          _fadeSlidePage(state: state, child: const SplashView()),
+    ),
+
+    /// Auth
+    GoRoute(
+      path: loginView,
+      name: loginView,
+      pageBuilder: (context, state) =>
+          _fadeSlidePage(state: state, child: const LoginView()),
+    ),
+
+    GoRoute(
+      path: registerView,
+      name: registerView,
       pageBuilder: (context, state) =>
           _fadeSlidePage(state: state, child: const RegisterView()),
     ),
@@ -99,11 +109,10 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: editAddressView,
       name: editAddressView,
-      pageBuilder: (context, state) =>
-          _fadeSlidePage(
-            state: state,
-            child: EditAddressView(addressModel: addresses.first),
-          ),
+      pageBuilder: (context, state) => _fadeSlidePage(
+        state: state,
+        child: EditAddressView(addressModel: addresses.first),
+      ),
     ),
 
     /// Orders

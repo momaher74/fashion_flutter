@@ -2,10 +2,7 @@ class AuthResponseModel {
   final bool success;
   final AuthData data;
 
-  AuthResponseModel({
-    required this.success,
-    required this.data,
-  });
+  AuthResponseModel({required this.success, required this.data});
 
   factory AuthResponseModel.fromJson(Map<String, dynamic> json) {
     return AuthResponseModel(
@@ -17,22 +14,23 @@ class AuthResponseModel {
 
 class AuthData {
   final UserModel user;
-  final String token;
+  final String accessToken;
+  final String refreshToken;
 
   AuthData({
     required this.user,
-    required this.token,
+    required this.accessToken,
+    required this.refreshToken,
   });
 
   factory AuthData.fromJson(Map<String, dynamic> json) {
     return AuthData(
       user: UserModel.fromJson(json['user']),
-      token: json['token'] ?? '',
+      accessToken: json['accessToken'] ?? '',
+      refreshToken: json['refreshToken'] ?? '',
     );
   }
 }
-
-
 
 class UserModel {
   final String id;
