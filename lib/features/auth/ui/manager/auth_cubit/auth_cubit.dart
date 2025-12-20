@@ -36,7 +36,7 @@ class AuthCubit extends Cubit<AuthState> {
     required String name,
   }) async {
     emit(state.copyWith(isLoading: true));
-    var result = await authRepoImp.login(
+    var result = await authRepoImp.register(
       data: {"email": email, "password": password, "name": name},
     );
     result.fold(

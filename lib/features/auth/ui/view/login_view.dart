@@ -43,7 +43,6 @@ class LoginView extends StatelessWidget {
           }
 
           if(state.error !=null){
-            print("SHOW ERROR MSG");
             showError(context: context, message: state.error!.toString());
           }
           // TODO: implement listener
@@ -74,6 +73,7 @@ class LoginView extends StatelessWidget {
                   controller: password,
                   hintText: AppLocalizations.common.password,
                   underLine: true,
+                  obscureText: true,
                 ),
 
                 Align(
