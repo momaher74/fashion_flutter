@@ -4,6 +4,8 @@ import 'package:fashion_flutter/core/services/endpoints.dart';
 
 import '../../../../core/enums/request_enum.dart';
 
+import '../../../../core/enums/request_enum.dart';
+
 abstract class AuthRepo {
   Future<Either> login({required Map<String, dynamic> data});
 
