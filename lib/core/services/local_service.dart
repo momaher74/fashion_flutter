@@ -10,6 +10,10 @@ class LocalDBService {
     return _prefs.setString(key, value);
   }
 
+  Future<bool> setStringList(String key, List<String> value) {
+    return _prefs.setStringList(key, value);
+  }
+
   Future<bool> setInt(String key, int value) {
     return _prefs.setInt(key, value);
   }
@@ -25,6 +29,10 @@ class LocalDBService {
   // ============ GET ============
   String getString(String key, {String defaultValue = ''}) {
     return _prefs.getString(key) ?? defaultValue;
+  }
+
+  List<String> getStringList(String key) {
+    return _prefs.getStringList(key) ?? [];
   }
 
   int getInt(String key, {int defaultValue = 0}) {

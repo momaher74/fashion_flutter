@@ -81,6 +81,9 @@ class OfferModel {
   final String title;
   final String type;
   final String image;
+  final String ?productId;
+  final String ?categoryId;
+  final String ?subCategoryId;
   final num value;
   final String scope;
   final DateTime endDate;
@@ -89,6 +92,9 @@ class OfferModel {
     required this.id,
     required this.title,
     required this.type,
+     this.productId,
+     this.subCategoryId,
+     this.categoryId,
     required this.value,
     required this.scope,
     required this.endDate,
@@ -103,6 +109,9 @@ class OfferModel {
       value: json['value'],
       scope: json['scope'],
       image: json['image'],
+      categoryId: json['categoryId'],
+      subCategoryId: json['subCategoryId'],
+      productId: json['productId'],
       endDate: DateTime.parse(json['endDate']),
     );
   }
@@ -206,6 +215,8 @@ class BannerModel {
   final String id;
   final String image;
   final String? categoryId;
+  final String? subCategoryId;
+  final String? productId;
   final String? categoryName;
   final int order;
 
@@ -214,6 +225,8 @@ class BannerModel {
     required this.image,
     this.categoryId,
     this.categoryName,
+    this.productId,
+    this.subCategoryId,
     required this.order,
   });
 
@@ -222,6 +235,8 @@ class BannerModel {
       id: json['id'],
       image: json['image'],
       categoryId: json['categoryId'],
+      subCategoryId: json['subCategoryId'],
+      productId: json['productId'],
       categoryName: json['categoryName'],
       order: json['order'],
     );

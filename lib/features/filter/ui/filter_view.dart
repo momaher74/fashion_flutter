@@ -1,13 +1,9 @@
-import 'package:fashion_flutter/core/widgets/custom_text_widget.dart';
-import 'package:fashion_flutter/core/widgets/shared_back_button.dart';
 import 'package:fashion_flutter/core/widgets/shared_gridview.dart';
 import 'package:fashion_flutter/core/widgets/shopping_app_bar.dart';
 import 'package:fashion_flutter/features/filter/ui/widgets/filter_bottomsheet_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
-
-import '../../../core/services/constants.dart';
 
 class FilterView extends StatelessWidget {
   const FilterView({super.key});
@@ -22,24 +18,35 @@ class FilterView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Gap(60),
+              ShoppingAppBar(title: "Filter", showBackButton: false),
+              const Gap(20),
               Row(
                 children: [
-                  Expanded(child: ShoppingAppBar(title: "Clothes", horizontal: 0)),
-                  GestureDetector(
-                    onTap: () {
+                  Expanded(
+                    child: const Text(
+                      "Found \n152 Results",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+
+                  Gap(10),
+                  IconButton(
+                    onPressed: () {
                       showFilterBottomSheet(context);
                     },
-                    child: Icon(PhosphorIcons.funnel(), size: 30),
+                    icon: Icon(
+                      Icons.filter_list,
+                      size: 28,
+                      color: Colors.black,
+                    ),
                   ),
                 ],
               ),
               const Gap(20),
-              const Text(
-                "Found \n152 Results",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-              const Gap(20),
-              SharedProductsGridView(),
+              SharedProductsGridView(ratio: .65),
             ],
           ),
         ),

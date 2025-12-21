@@ -1,27 +1,33 @@
 part of 'discover_cubit.dart';
 
-
 class DiscoverState {
- final List<ProductModel> products;
- final String? error;
- final bool isLoading;
+  final List<ProductModel> products;
+  final bool isLoading;
+  final String? error;
+  final int totalPages;
+  final List<String> searches;
 
- const DiscoverState({
-  this.products = const [],
-  this.error,
-  this.isLoading = false,
- });
+  DiscoverState({
+    this.products = const [],
+    this.searches = const [],
+    this.isLoading = false,
+    this.error,
+    this.totalPages = 1,
+  });
 
- // Helper method to copy state with changes
- DiscoverState copyWith({
-  List<ProductModel>? products,
-  String? error,
-  bool? isLoading,
- }) {
-  return DiscoverState(
-   products: products ?? this.products,
-   error: error,
-   isLoading: isLoading ?? this.isLoading,
-  );
- }
+  DiscoverState copyWith({
+    List<ProductModel>? products,
+    bool? isLoading,
+    String? error,
+    int? totalPages,
+    List<String>? searches,
+  }) {
+    return DiscoverState(
+      products: products ?? this.products,
+      isLoading: isLoading ?? this.isLoading,
+      error: error,
+      totalPages: totalPages ?? this.totalPages,
+      searches: searches ?? this.searches,
+    );
+  }
 }

@@ -1,8 +1,10 @@
 import 'package:fashion_flutter/features/cart/ui/cart_view.dart';
+import 'package:fashion_flutter/features/discover/ui/manager/discover_cubit.dart';
 import 'package:fashion_flutter/features/discover/ui/view/discover_view.dart';
 import 'package:fashion_flutter/features/filter/ui/filter_view.dart';
 import 'package:fashion_flutter/features/home/ui/view/home_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 class LayoutView extends StatefulWidget {
@@ -15,9 +17,12 @@ class LayoutView extends StatefulWidget {
 class _LayoutViewState extends State<LayoutView> {
   int i = 0;
 
-  final List<Widget> screens = const [
+  final List<Widget> screens = [
     HomeView(),
-    DiscoverView(),
+    BlocProvider<DiscoverCubit>(
+      create: (BuildContext context) => DiscoverCubit(),
+      child: DiscoverView(),
+    ),
     CartView(),
     FilterView(),
   ];
@@ -41,9 +46,9 @@ class _LayoutViewState extends State<LayoutView> {
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(12) ,
-                topRight: Radius.circular(12) ,
-              )
+                topLeft: Radius.circular(12),
+                topRight: Radius.circular(12),
+              ),
             ),
             child: GNav(
               selectedIndex: i,
@@ -57,23 +62,11 @@ class _LayoutViewState extends State<LayoutView> {
               tabBackgroundColor: Colors.black,
 
               tabs: const [
-                GButton(
-                  icon: Icons.home_filled,
-                  text: 'Home',
-                ),
-                GButton(
-                  icon: Icons.search,
-                  text: 'Discover',
-                ),
-                GButton(
-                  icon: Icons.shopping_cart,
-                  text: 'Cart',
-                ),
+                GButton(icon: Icons.home_filled, text: 'Home'),
+                GButton(icon: Icons.search, text: 'Discover'),
+                GButton(icon: Icons.shopping_cart, text: 'Cart'),
 
-                GButton(
-                  icon: Icons.category_sharp,
-                  text: 'Filter',
-                ),
+                GButton(icon: Icons.category_sharp, text: 'Filter'),
               ],
             ),
           ),

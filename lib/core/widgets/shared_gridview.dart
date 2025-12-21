@@ -17,7 +17,7 @@ class SharedProductsGridView extends StatelessWidget {
       itemCount: gridProducts !=null ? gridProducts!.length : products.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          childAspectRatio: ratio ??.65,
+          childAspectRatio: ratio ??.75,
           mainAxisSpacing: 30
       ),
       itemBuilder: (BuildContext context, int index) {

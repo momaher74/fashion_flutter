@@ -8,7 +8,6 @@ import 'package:gap/gap.dart';
 
 import 'banner_widget.dart';
 import 'category_list_view_widget.dart';
-import 'collections_list_view.dart';
 
 class HomeViewBodyWidget extends StatelessWidget {
   const HomeViewBodyWidget({super.key, required this.data});
@@ -33,7 +32,7 @@ class HomeViewBodyWidget extends StatelessWidget {
                 RecommendedListView(
                   recommendedProducts: data?.recommendedProducts ?? [],
                 ),
-                // const Gap(10),
+                const Gap(15),
                 // const CollectionsListView(),
                 // const Gap(60),
               ],
