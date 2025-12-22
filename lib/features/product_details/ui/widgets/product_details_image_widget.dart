@@ -57,7 +57,7 @@ class ProductDetailsImageWidget extends StatelessWidget {
                     Spacer(),
                     SharedFavouriteButton(
                       isFavourite: isFavourite,
-                      padding: 15,
+                      padding: 15, onTap: () {  },
                     ),
                   ],
                 ),

@@ -23,7 +23,7 @@ class ProductsListView extends StatelessWidget {
           height: 230,
           child: ListView.builder(
             itemBuilder: (context, index) {
-              return ProductItem(product: popularProducts[index]);
+              return ProductItem(product: popularProducts[index], onTap: () {  },);
             },
             itemCount: popularProducts.length,
             scrollDirection: Axis.horizontal,

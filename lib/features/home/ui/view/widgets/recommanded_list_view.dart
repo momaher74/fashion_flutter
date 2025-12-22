@@ -21,7 +21,7 @@ class RecommendedListView extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ShowAllWidget(title: "Recommended"),
-        SharedProductsGridView(gridProducts: recommendedProducts,ratio: .75,),
+        SharedProductsGridView(gridProducts: recommendedProducts,ratio: .75, onTap: () {  },),
       ],
     );
   }

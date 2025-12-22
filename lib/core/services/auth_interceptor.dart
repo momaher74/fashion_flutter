@@ -21,44 +21,69 @@ class AuthInterceptor extends QueuedInterceptor {
   void onError(DioException err, ErrorInterceptorHandler handler) async {
     if (err.response?.statusCode == 401) {
       try {
-
-        print("handel refresh token process ${localDB.getString(refreshTokenKey)}");
         final refreshToken = localDB.getString(refreshTokenKey);
+        print(
+          "DEBUG: Starting refresh token process. RefreshToken length: ${refreshToken.length}",
+        );
 
         if (refreshToken.isEmpty) {
+          print("DEBUG: Refresh token is empty, skipping refresh.");
           return super.onError(err, handler);
         }
 
         // Call refresh endpoint
-        // Use a separate Dio instance to avoid infinite loops
-        final refreshDio = Dio(BaseOptions(baseUrl: client.options.baseUrl));
+        final refreshDio = Dio(
+          BaseOptions(
+            baseUrl: client.options.baseUrl,
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+            },
+          ),
+        );
+
+        print(
+          "DEBUG: Calling refresh endpoint: ${client.options.baseUrl}auth/refresh",
+        );
         final response = await refreshDio.post(
           'auth/refresh',
           data: {'refreshToken': refreshToken},
         );
 
+        print("DEBUG: Refresh response status: ${response.statusCode}");
+        print("DEBUG: Refresh response data: ${response.data}");
+
         if (response.statusCode == 200 || response.statusCode == 201) {
-          final newAccessToken = response.data['accessToken'];
-          final newRefreshToken = response.data['refreshToken'];
+          // Handle both wrapped and unwrapped response
+          final data = response.data['data'] ?? response.data;
+          final newAccessToken = data['accessToken'];
+          final newRefreshToken = data['refreshToken'];
 
-          await localDB.setString(accessTokenKey, newAccessToken);
-          await localDB.setString(refreshTokenKey, newRefreshToken);
+          if (newAccessToken != null && newRefreshToken != null) {
+            print("DEBUG: Successfully got new tokens.");
+            await localDB.setString(accessTokenKey, newAccessToken);
+            await localDB.setString(refreshTokenKey, newRefreshToken);
 
-          // Retry the original request
-          final options = err.requestOptions;
-          options.headers['Authorization'] = 'Bearer $newAccessToken';
+            // Retry the original request
+            final options = err.requestOptions;
+            options.headers['Authorization'] = 'Bearer $newAccessToken';
 
-          final clonedResponse = await client.fetch(options);
-          return handler.resolve(clonedResponse);
+            print("DEBUG: Retrying original request to: ${options.path}");
+            final clonedResponse = await client.fetch(options);
+            return handler.resolve(clonedResponse);
+          } else {
+            print("DEBUG: Tokens not found in refresh response.");
+          }
         }
       } catch (e) {
-        // If refresh fails, you might want to logout the user
-        // For example, by clearing storage and navigating to login
+        print("DEBUG: Error during refresh token process: $e");
+        if (e is DioException) {
+          print("DEBUG: DioException details: ${e.response?.data}");
+        }
+
+        // If refresh fails, clear tokens
         await localDB.remove(accessTokenKey);
         await localDB.remove(refreshTokenKey);
-
-        // You can also use a GlobalKey<NavigatorState> to redirect to Login
-        // or a Stream that the UI listens to.
       }
     }
     return super.onError(err, handler);

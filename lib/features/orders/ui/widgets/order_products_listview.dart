@@ -18,7 +18,7 @@ class OrderProductsListview extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           final ProductModel product = products[index];
-          return ProductItem(product: product, showFavIcon: false);
+          return ProductItem(product: product, showFavIcon: false, onTap: () {  },);
         },
         separatorBuilder: (context, index) {
           return Gap(10);

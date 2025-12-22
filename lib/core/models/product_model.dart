@@ -48,7 +48,7 @@ class ProductModel {
       id: json['id'],
       name: json['name'],
       rate: json['rate'] ?? 5,
-      isFavourite: json['isFavourite'] ?? false,
+      isFavourite: json['inFavourite'] ?? false,
       description: json['description'],
       images: List<String>.from(json['images']),
       price: json['price'],

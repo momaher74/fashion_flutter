@@ -1,11 +1,16 @@
+import 'package:fashion_flutter/core/models/filter_argument_model.dart';
 import 'package:fashion_flutter/features/cart/ui/cart_view.dart';
 import 'package:fashion_flutter/features/discover/ui/manager/discover_cubit.dart';
 import 'package:fashion_flutter/features/discover/ui/view/discover_view.dart';
 import 'package:fashion_flutter/features/filter/ui/filter_view.dart';
+import 'package:fashion_flutter/features/home/data/repos/home_repo.dart';
+import 'package:fashion_flutter/features/home/ui/manager/home_cubit.dart';
 import 'package:fashion_flutter/features/home/ui/view/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+
+import '../../../../core/services/locator.dart';
 
 class LayoutView extends StatefulWidget {
   const LayoutView({super.key});
@@ -18,13 +23,16 @@ class _LayoutViewState extends State<LayoutView> {
   int i = 0;
 
   final List<Widget> screens = [
-    HomeView(),
+    BlocProvider<HomeCubit>(
+      create: (context) => HomeCubit(getIt<HomeRepoImpl>())..getHome(),
+      child: HomeView(),
+    ),
     BlocProvider<DiscoverCubit>(
       create: (BuildContext context) => DiscoverCubit(),
       child: DiscoverView(),
     ),
     CartView(),
-    FilterView(),
+    FilterView(filterArgumentModel: FilterArgumentModel()),
   ];
 
   @override

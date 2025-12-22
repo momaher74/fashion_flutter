@@ -19,7 +19,7 @@ class ResultsListview extends StatelessWidget {
       builder: (context, state) {
         if (state.products.isNotEmpty) {
           return  SharedProductsGridView(
-            gridProducts: state.products,
+            gridProducts: state.products, onTap: () {  },
 
           );
         }

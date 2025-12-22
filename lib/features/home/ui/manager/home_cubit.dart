@@ -24,8 +24,6 @@ class HomeCubit extends Cubit<HomeState> {
         ),
       ),
       (home) {
-
-        print(home) ;
         emit(
           state.copyWith(
             status: HomeStatus.success,

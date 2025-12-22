@@ -21,6 +21,6 @@ class FilterRepoImpl implements FilterRepo {
 
   @override
   Future<Either> fetchFilterOptions() async {
-    return api.request(type: RequestType.get, path: productsEP);
+    return api.request(type: RequestType.get, path: filterEP);
   }
 }

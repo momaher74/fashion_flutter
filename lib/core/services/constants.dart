@@ -244,7 +244,7 @@ final List<OrderModel> orders = [
 
 const rating = [1, 2, 3, 4, 5];
 
-const Color primaryColor = Colors.deepPurple;
+const Color primaryColor =  Color(0xff508A7B);
 
 bool isIos() {
   if (Platform.isIOS) {

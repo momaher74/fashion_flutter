@@ -1,13 +1,10 @@
-import 'package:fashion_flutter/features/setting/ui/view/setting_view.dart';
+import 'package:fashion_flutter/core/models/filter_argument_model.dart';
+import 'package:fashion_flutter/features/filter/ui/filter_view.dart';
+import 'package:fashion_flutter/features/wishlist/ui/view/whishlist_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
-import '../../features/auth/ui/view/change_password_view.dart';
-import '../../features/auth/ui/view/forget_password_view.dart';
 import '../../features/auth/ui/view/login_view.dart';
-import '../../features/auth/ui/view/otp_view.dart';
 import '../../features/auth/ui/view/register_view.dart';
-import '../../features/auth/ui/view/reset_view.dart';
 import '../../features/notification/ui/view/notification_view.dart';
 import 'routes_names.dart';
 import '../../features/splash/splash_view.dart';
@@ -65,7 +62,7 @@ final GoRouter router = GoRouter(
       path: splashView,
       name: splashView,
       pageBuilder: (context, state) =>
-          _fadeSlidePage(state: state, child: const SplashView()),
+          _fadeSlidePage(state: state, child: const WishlistView()),
     ),
 
     /// Auth
@@ -140,6 +137,28 @@ final GoRouter router = GoRouter(
       name: rateOrderView,
       pageBuilder: (context, state) =>
           _fadeSlidePage(state: state, child: const RateOrderView()),
+    ),
+
+
+
+    GoRoute(
+      path: notificationView,
+      name: notificationView,
+      pageBuilder: (context, state) =>
+          _fadeSlidePage(state: state, child: const NotificationView()),
+    ),
+
+    GoRoute(
+      path: filterView,
+      name: filterView,
+      pageBuilder: (context, state) {
+        final FilterArgumentModel filterArgumentModel =
+            state.extra as FilterArgumentModel;
+        return _fadeSlidePage(
+          state: state,
+          child: FilterView(filterArgumentModel: filterArgumentModel),
+        );
+      },
     ),
 
     /// Checkout

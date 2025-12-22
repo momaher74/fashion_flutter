@@ -9,3 +9,4 @@ const String orderPlacedView = "/orderPlacedView" ;
 const String ordersView = "/orders" ;
 const String orderDetailsView = "/orderDetails" ;
 const String rateOrderView = "/rateOrder" ;
+const String filterView = "/filterView" ;

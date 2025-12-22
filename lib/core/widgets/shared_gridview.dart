@@ -5,23 +5,38 @@ import 'package:flutter/material.dart';
 import '../services/constants.dart';
 
 class SharedProductsGridView extends StatelessWidget {
-  const SharedProductsGridView({super.key,  this.gridProducts, this.ratio  });
-  final List<ProductModel>  ? gridProducts  ;
-  final double ? ratio ;
+  const SharedProductsGridView({
+    super.key,
+    this.gridProducts,
+    this.ratio,
+    required this.onTap,
+  });
+
+  final List<ProductModel>? gridProducts;
+
+  final VoidCallback onTap;
+  final double? ratio;
+
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
       shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
       padding: EdgeInsets.zero,
-      itemCount: gridProducts !=null ? gridProducts!.length : products.length,
+      itemCount: gridProducts != null ? gridProducts!.length : products.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          childAspectRatio: ratio ??.75,
-          mainAxisSpacing: 30
+        crossAxisCount: 2,
+        childAspectRatio: ratio ?? .75,
+        mainAxisSpacing: 30,
       ),
       itemBuilder: (BuildContext context, int index) {
-        return ProductItem(product: gridProducts !=null ?gridProducts![index] : products[index] , isGrid: true,);
+        return ProductItem(
+          product: gridProducts != null
+              ? gridProducts![index]
+              : products[index],
+          isGrid: true,
+          onTap: onTap,
+        );
       },
     );
   }
