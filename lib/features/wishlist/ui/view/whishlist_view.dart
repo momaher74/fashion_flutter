@@ -1,8 +1,8 @@
 import 'package:fashion_flutter/core/services/constants.dart';
-import 'package:fashion_flutter/core/widgets/custom_loading_widget.dart';
-import 'package:fashion_flutter/core/widgets/custom_text_widget.dart';
 import 'package:fashion_flutter/core/widgets/custome_error_widget.dart';
+import 'package:fashion_flutter/core/widgets/shopping_app_bar.dart';
 import 'package:fashion_flutter/features/wishlist/ui/manager/wishlist_cubit.dart';
+import 'package:fashion_flutter/features/wishlist/ui/view/widgets/shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
@@ -21,7 +21,7 @@ class WishlistView extends StatelessWidget {
         body: BlocBuilder<WishlistCubit, WishlistState>(
           builder: (context, state) {
             if (state.isLoading) {
-              return const CustomLoadingWidget();
+              return const WishlistShimmerGrid();
             }
 
             if (state.error != null) {
@@ -31,18 +31,19 @@ class WishlistView extends StatelessWidget {
             return Column(
               children: [
                 headerGap(),
-                CustomText("wishlist", fontWeight: bold, fontSize: size18),
-                Gap(30),
+
+                ShoppingAppBar(title: "Wishlist" ,showBackButton: false,) ,
+                Gap(20),
 
                 if (state.products.isEmpty)
                   Center(
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 300),
+                      padding: const EdgeInsets.symmetric(vertical: 200),
                       child: EmptyStateWidget(),
                     ),
                   ),
 
-                if (state.products.isEmpty)
+                if (state.products.isNotEmpty)
                   Expanded(
                     child: GridView.builder(
                       shrinkWrap: true,

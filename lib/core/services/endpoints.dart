@@ -8,3 +8,4 @@ const productsEP = "products";
 const filterEP = "products/filter-options";
 const wishlistEP = "wishlist";
 const toggleWishlist = "wishlist/toggle" ;
+const categoryEP = "categories/active-with-subcategories" ;

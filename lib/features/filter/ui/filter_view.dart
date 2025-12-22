@@ -1,4 +1,5 @@
 import 'package:fashion_flutter/core/widgets/custom_loading_widget.dart';
+import 'package:fashion_flutter/core/widgets/no_products_widget.dart';
 import 'package:fashion_flutter/core/widgets/shared_gridview.dart';
 import 'package:fashion_flutter/core/widgets/shopping_app_bar.dart';
 import 'package:fashion_flutter/features/filter/ui/manager/filter_cubit.dart';
@@ -13,6 +14,7 @@ import '../../../core/services/locator.dart';
 
 class FilterView extends StatefulWidget {
   const FilterView({super.key, required this.filterArgumentModel});
+
   final FilterArgumentModel filterArgumentModel;
 
   @override
@@ -70,7 +72,11 @@ class _FilterViewState extends State<FilterView> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Gap(70),
-                    ShoppingAppBar(title: "Filter", showBackButton: true ,horizontal: 0,),
+                    ShoppingAppBar(
+                      title: "Filter",
+                      showBackButton: true,
+                      horizontal: 0,
+                    ),
                     const Gap(20),
                     Row(
                       children: [
@@ -119,11 +125,8 @@ class _FilterViewState extends State<FilterView> {
                     else if (state.allProducts.isEmpty)
                       Center(
                         child: Padding(
-                          padding: const EdgeInsets.all(40.0),
-                          child: Text(
-                            "No products found",
-                            style: TextStyle(fontSize: 16),
-                          ),
+                          padding: const EdgeInsets.symmetric(vertical: 150.0),
+                          child: EmptyStateWidget(),
                         ),
                       )
                     else
@@ -131,7 +134,8 @@ class _FilterViewState extends State<FilterView> {
                         children: [
                           SharedProductsGridView(
                             gridProducts: state.allProducts,
-                            ratio: .65, onTap: () {  },
+                            ratio: .65,
+                            onTap: () {},
                           ),
 
                           // Loading more indicator

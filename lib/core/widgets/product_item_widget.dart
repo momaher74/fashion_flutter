@@ -13,7 +13,7 @@ class ProductItem extends StatelessWidget {
     super.key,
     required this.product,
     this.isGrid = false,
-    this.showFavIcon = true,
+    this.showFavIcon = false,
     required this.onTap,
   });
 
@@ -35,28 +35,29 @@ class ProductItem extends StatelessWidget {
           Stack(
             alignment: Alignment.topRight,
             children: [
+              CustomCachedImage(
+                imageUrl: product.images.last,
+                height: isGrid ? 200 : 170,
+                width: double.infinity,
+                borderRadius: BorderRadius.circular(10),
+              ),
+
               GestureDetector(
                 onTap: (){
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ProductDetailsView(productModel: product),
+                      builder: (context) =>
+                          ProductDetailsView(productModel: product),
                     ),
                   );
                 },
-                child: CustomCachedImage(
-                  imageUrl: product.images.last,
+                child: Container(
                   height: isGrid ? 200 : 170,
-                  width: double.infinity,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-
-              Container(
-                height: isGrid ? 200 : 170,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.black.withValues(alpha: .1),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.black.withValues(alpha: .1),
+                  ),
                 ),
               ),
               if (showFavIcon)
@@ -91,15 +92,16 @@ class ProductItem extends StatelessWidget {
             children: [
               CustomText(
                 product.finalPrice.toString(),
-                fontSize: 16,
+                fontSize: 14,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                fontWeight: bold,
+                fontWeight: FontWeight.w400,
+                color: primaryColor,
               ),
               if (product.finalPrice != product.price)
                 CustomText(
                   product.price.toString(),
-                  fontSize: 16,
+                  fontSize: 10,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   fontWeight: normal,

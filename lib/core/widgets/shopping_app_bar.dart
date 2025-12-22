@@ -32,7 +32,10 @@ class ShoppingAppBar extends StatelessWidget {
       ):Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CustomText(title, fontSize: size20, fontWeight: bold),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10.0),
+            child: CustomText(title, fontSize: size20, fontWeight: bold),
+          ),
 
         ],
       ),

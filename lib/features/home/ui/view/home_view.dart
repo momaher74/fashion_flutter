@@ -2,7 +2,6 @@ import 'package:fashion_flutter/core/router/routes_names.dart';
 import 'package:fashion_flutter/core/services/app_localizations.dart';
 import 'package:fashion_flutter/core/services/constants.dart';
 import 'package:fashion_flutter/core/widgets/custom_text_widget.dart';
-import 'package:fashion_flutter/features/home/data/repos/home_repo.dart';
 import 'package:fashion_flutter/features/home/ui/manager/home_cubit.dart';
 import 'package:fashion_flutter/features/home/ui/view/widgets/custom_drawer_widget.dart';
 import 'package:fashion_flutter/features/home/ui/view/widgets/home_shimmer.dart';
@@ -14,7 +13,6 @@ import 'package:go_router/go_router.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-import '../../../../core/services/locator.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});

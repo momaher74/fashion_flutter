@@ -1,3 +1,4 @@
+import 'package:fashion_flutter/core/services/constants.dart';
 import 'package:fashion_flutter/core/widgets/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -7,7 +8,6 @@ import 'package:go_router/go_router.dart';
 import '../../../../../core/models/filter_argument_model.dart';
 import '../../../../../core/models/product_model.dart';
 import '../../../../../core/router/routes_names.dart';
-import '../../../data/models/home_model.dart';
 
 class BannerWidget extends StatefulWidget {
   final List<BannerModel> banners;
@@ -74,7 +74,7 @@ class _BannerWidgetState extends State<BannerWidget> {
           dotsCount: widget.banners.length,
           position: _currentIndex.toDouble(),
           decorator: DotsDecorator(
-            activeColor: Colors.deepPurple,
+            activeColor: primaryColor,
             size: const Size.square(8.0),
             activeSize: const Size(16.0, 8.0),
             activeShape: RoundedRectangleBorder(

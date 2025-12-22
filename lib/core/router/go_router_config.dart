@@ -1,4 +1,5 @@
 import 'package:fashion_flutter/core/models/filter_argument_model.dart';
+import 'package:fashion_flutter/features/categories/view/category_view.dart';
 import 'package:fashion_flutter/features/filter/ui/filter_view.dart';
 import 'package:fashion_flutter/features/wishlist/ui/view/whishlist_view.dart';
 import 'package:flutter/material.dart';
@@ -62,7 +63,7 @@ final GoRouter router = GoRouter(
       path: splashView,
       name: splashView,
       pageBuilder: (context, state) =>
-          _fadeSlidePage(state: state, child: const WishlistView()),
+          _fadeSlidePage(state: state, child: const CategorySideMenuDashboard()),
     ),
 
     /// Auth
@@ -138,8 +139,6 @@ final GoRouter router = GoRouter(
       pageBuilder: (context, state) =>
           _fadeSlidePage(state: state, child: const RateOrderView()),
     ),
-
-
 
     GoRoute(
       path: notificationView,

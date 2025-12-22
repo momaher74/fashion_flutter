@@ -1,6 +1,9 @@
 import 'dart:async';
+import 'package:fashion_flutter/core/models/filter_argument_model.dart';
+import 'package:fashion_flutter/core/router/routes_names.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class SearchFieldWidget extends StatefulWidget {
@@ -55,23 +58,28 @@ class _SearchFieldWidgetState extends State<SearchFieldWidget> {
             ),
           ),
           Gap(8),
-          SizedBox(
-            height: 70,
-            width: 70,
-            child: Card(
-              elevation: 5,
-              color: Colors.white,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Icon(
-                  PhosphorIcons.faders(),
-                  size: 25,
-                  color: Colors.black,
+          GestureDetector(
+            onTap: () {
+              context.pushNamed(filterView, extra: FilterArgumentModel());
+            },
+            child: SizedBox(
+              height: 70,
+              width: 70,
+              child: Card(
+                elevation: 5,
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Icon(
+                    PhosphorIcons.faders(),
+                    size: 25,
+                    color: Colors.black,
+                  ),
                 ),
               ),
             ),
           ),
-          Gap(10)
+          Gap(10),
         ],
       ),
     );

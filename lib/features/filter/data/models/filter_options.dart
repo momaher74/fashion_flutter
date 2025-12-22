@@ -80,11 +80,13 @@ class CategoryModel {
 class SubCategoryModel {
   final String id;
   final String name;
+  final String image;
   final String categoryId;
 
   SubCategoryModel({
     required this.id,
     required this.name,
+    required this.image,
     required this.categoryId,
   });
 
@@ -92,7 +94,7 @@ class SubCategoryModel {
     return SubCategoryModel(
       id: json['id'],
       name: json['name'],
-      categoryId: json['categoryId'],
+      categoryId: json['categoryId'], image: '',
     );
   }
 }
