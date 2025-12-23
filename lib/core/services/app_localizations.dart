@@ -139,6 +139,11 @@ class ProductTranslations {
   String get discount => 'product.discount'.tr();
   String get inStock => 'product.in_stock'.tr();
   String get outOfStock => 'product.out_of_stock'.tr();
+  String get selectSizeAndColor => 'product.select_size_and_color'.tr();
+  String get currentQuantity => 'product.current_quantity'.tr();
+  String get updateCart => 'product.update_cart'.tr();
+  String get cartUpdated => 'product.cart_updated'.tr();
+  String get addedToCart => 'product.added_to_cart'.tr();
 }
 
 class CartTranslations {

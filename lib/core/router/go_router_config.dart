@@ -1,7 +1,6 @@
 import 'package:fashion_flutter/core/models/filter_argument_model.dart';
-import 'package:fashion_flutter/features/categories/view/category_view.dart';
 import 'package:fashion_flutter/features/filter/ui/filter_view.dart';
-import 'package:fashion_flutter/features/wishlist/ui/view/whishlist_view.dart';
+import 'package:fashion_flutter/features/product_details/ui/product_details_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../features/auth/ui/view/login_view.dart';
@@ -166,6 +165,19 @@ final GoRouter router = GoRouter(
       name: orderPlacedView,
       pageBuilder: (context, state) =>
           _fadeSlidePage(state: state, child: const OrderPlacedView()),
+    ),
+
+    /// Checkout
+    GoRoute(
+      path: productDetails,
+      name: productDetails,
+      pageBuilder: (context, state) {
+        final String id = state.extra as String;
+        return _fadeSlidePage(
+          state: state,
+          child: ProductDetailsView(id: id),
+        );
+      },
     ),
   ],
 );

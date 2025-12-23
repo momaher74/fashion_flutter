@@ -82,7 +82,12 @@
     "price": "Price",
     "discount": "Discount",
     "in_stock": "In Stock",
-    "out_of_stock": "Out of Stock"
+    "out_of_stock": "Out of Stock",
+    "select_size_and_color": "Please select size and color",
+    "current_quantity": "Current Quantity",
+    "update_cart": "Update Cart",
+    "cart_updated": "Cart updated successfully",
+    "added_to_cart": "Added to cart successfully"
   },
 
   "cart": {

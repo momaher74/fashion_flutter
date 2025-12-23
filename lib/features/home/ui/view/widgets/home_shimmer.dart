@@ -7,6 +7,7 @@ class HomeShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      padding: EdgeInsets.symmetric(horizontal: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -18,6 +19,7 @@ class HomeShimmer extends StatelessWidget {
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 itemCount: 6,
+
                 separatorBuilder: (_, __) => const SizedBox(width: 8),
                 itemBuilder: (_, __) => Shimmer.fromColors(
                   baseColor: Colors.grey[300]!,

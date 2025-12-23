@@ -1,7 +1,8 @@
+import 'package:fashion_flutter/core/router/routes_names.dart';
 import 'package:fashion_flutter/core/widgets/shared_favourite_button.dart';
-import 'package:fashion_flutter/features/product_details/ui/product_details_view.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 
 import '../models/product_model.dart';
 import '../services/constants.dart';
@@ -43,14 +44,8 @@ class ProductItem extends StatelessWidget {
               ),
 
               GestureDetector(
-                onTap: (){
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          ProductDetailsView(productModel: product),
-                    ),
-                  );
+                onTap: () {
+                  context.pushNamed(productDetails, extra: product.id);
                 },
                 child: Container(
                   height: isGrid ? 200 : 170,

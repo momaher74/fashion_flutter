@@ -78,7 +78,12 @@
         "price": "السعر",
         "discount": "الخصم",
         "in_stock": "متوفر",
-        "out_of_stock": "غير متوفر"
+        "out_of_stock": "غير متوفر",
+        "select_size_and_color": "الرجاء اختيار المقاس واللون",
+        "current_quantity": "الكمية الحالية",
+        "update_cart": "تحديث السلة",
+        "cart_updated": "تم تحديث السلة بنجاح",
+        "added_to_cart": "تمت الإضافة للسلة بنجاح"
     },
     "cart": {
         "my_cart": "سلتي",

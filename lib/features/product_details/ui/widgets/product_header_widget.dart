@@ -1,16 +1,16 @@
-import 'package:fashion_flutter/core/models/product_model.dart';
+import 'package:fashion_flutter/features/product_details/data/models/product_details_model.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../../../core/services/constants.dart';
 import '../../../../core/widgets/custom_text_widget.dart';
-import '../../../home/data/models/home_model.dart';
+
 
 class ProductHeaderWidget extends StatelessWidget {
   const ProductHeaderWidget({super.key, required this.productModel});
 
-  final ProductModel productModel ;
+  final ProductDetailsModel productModel ;
 
 
   @override
@@ -24,7 +24,7 @@ class ProductHeaderWidget extends StatelessWidget {
             children: [
               Expanded(
                 child: CustomText(
-                  productModel.name,
+                  productModel.data.name,
                   fontWeight: bold,
                   fontSize: size18,
                   maxLines: 2,
@@ -32,16 +32,16 @@ class ProductHeaderWidget extends StatelessWidget {
               ),
               Spacer(),
               CustomText(
-                productModel.finalPrice.toString(),
+                productModel.data.finalPrice.toString(),
                 fontWeight: bold,
                 fontSize: size18,
               ),
-              if (productModel.price !=
-                  productModel.finalPrice)
+              if (  productModel.data !=
+                  productModel.data.finalPrice)
                 Padding(
                   padding: EdgeInsets.all(4),
                   child: CustomText(
-                    productModel.price.toString(),
+                    productModel.data.price.toString(),
                     fontWeight: normal,
                     color: Colors.grey,
                     fontSize: 10,
@@ -52,7 +52,7 @@ class ProductHeaderWidget extends StatelessWidget {
           ),
           Gap(12),
 
-          LottieRatingStars(rating: double.parse(productModel.rate.toInt().toString()),)
+          LottieRatingStars(rating: double.parse(  productModel.data.rate.toInt().toString()),)
 
 
 

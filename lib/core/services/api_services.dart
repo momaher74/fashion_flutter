@@ -72,6 +72,10 @@ class ApiServices {
           response = await _dio.put(path, data: data, options: options);
           break;
 
+        case RequestType.patch:
+          response = await _dio.patch(path, data: data, options: options);
+          break;
+
         case RequestType.delete:
           response = await _dio.delete(path, data: data, options: options);
           break;

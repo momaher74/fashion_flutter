@@ -23,7 +23,7 @@ class WishlistRepoImpl implements WishlistRepo {
   Future<Either> toggleProduct({required String productId}) {
     return api.request(
       type: RequestType.post,
-      path: "$toggleWishlist/$productId",
+      path: "$toggleWishlistEP/$productId",
     );
   }
 }
