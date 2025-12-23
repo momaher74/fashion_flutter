@@ -23,15 +23,12 @@ class WishlistView extends StatelessWidget {
             if (state.isLoading) {
               return const WishlistShimmerGrid();
             }
-
             if (state.error != null) {
               return CustomErrorWidget(message: state.error!);
             }
-
             return Column(
               children: [
                 headerGap(),
-
                 ShoppingAppBar(title: "Wishlist" ,showBackButton: false,) ,
                 Gap(20),
 
@@ -59,6 +56,7 @@ class WishlistView extends StatelessWidget {
                         final p = state.products[index];
                         return ProductItem(
                           product: p,
+                          showFavIcon: true,
                           isGrid: true,
                           onTap: () {
                             context.read<WishlistCubit>().toggle(

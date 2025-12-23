@@ -32,13 +32,17 @@ class _CartViewState extends State<CartView> {
     return Skeletonizer(
       enabled: _enabled,
       enableSwitchAnimation: true,
-  
+
       child: Scaffold(
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Gap(60),
-            ShoppingAppBar(title: AppLocalizations.cart.myCart, horizontal: 10),
+            ShoppingAppBar(
+              title: AppLocalizations.cart.myCart,
+              horizontal: 10,
+              showBackButton: false,
+            ),
 
             Gap(20),
 

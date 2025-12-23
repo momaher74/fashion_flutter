@@ -11,15 +11,15 @@ import 'package:gap/gap.dart';
 import 'manager/category_cubit.dart';
 import 'manager/category_state.dart';
 
-class CategorySideMenuDashboard extends StatefulWidget {
-  const CategorySideMenuDashboard({super.key});
+class CategoryView extends StatefulWidget {
+  const CategoryView({super.key});
 
   @override
-  State<CategorySideMenuDashboard> createState() =>
+  State<CategoryView> createState() =>
       _CategorySideMenuDashboardState();
 }
 
-class _CategorySideMenuDashboardState extends State<CategorySideMenuDashboard>
+class _CategorySideMenuDashboardState extends State<CategoryView>
     with SingleTickerProviderStateMixin {
   String? selectedCategoryId;
   late AnimationController _animationController;

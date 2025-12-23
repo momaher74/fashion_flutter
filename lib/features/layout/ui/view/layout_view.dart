@@ -1,4 +1,3 @@
-
 import 'package:fashion_flutter/features/cart/ui/cart_view.dart';
 import 'package:fashion_flutter/features/discover/ui/manager/discover_cubit.dart';
 import 'package:fashion_flutter/features/discover/ui/view/discover_view.dart';
@@ -10,6 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 import '../../../../core/services/locator.dart';
+import '../../../categories/view/category_view.dart';
 
 class LayoutView extends StatefulWidget {
   const LayoutView({super.key});
@@ -22,16 +22,14 @@ class _LayoutViewState extends State<LayoutView> {
   int i = 0;
 
   final List<Widget> screens = [
-    BlocProvider<HomeCubit>.value(
-      value: getIt<HomeCubit>(),
-      child: HomeView(),
-    ),
+    BlocProvider<HomeCubit>.value(value: getIt<HomeCubit>(), child: HomeView()),
     BlocProvider<DiscoverCubit>(
       create: (BuildContext context) => DiscoverCubit(),
       child: DiscoverView(),
     ),
     CartView(),
     WishlistView(),
+    CategoryView(),
   ];
 
   @override
@@ -63,7 +61,7 @@ class _LayoutViewState extends State<LayoutView> {
                 setState(() => i = index);
               },
               gap: 8,
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
               activeColor: Colors.white,
               color: Colors.grey,
               tabBackgroundColor: Colors.black,
@@ -74,6 +72,7 @@ class _LayoutViewState extends State<LayoutView> {
                 GButton(icon: Icons.shopping_cart, text: 'Cart'),
 
                 GButton(icon: Icons.favorite, text: 'Wishlist'),
+                GButton(icon: Icons.category_rounded, text: 'Categories' ,textStyle: TextStyle(fontSize: 14 ,color: Colors.white),),
               ],
             ),
           ),
