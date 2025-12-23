@@ -13,3 +13,4 @@ const cartEP = "cart";
 const addToCartEP = "cart/add";
 const updateCartItemEP = "cart/items"; // Will append /{itemId}
 const getCartEP = "cart";
+const addressesEP = "addresses";

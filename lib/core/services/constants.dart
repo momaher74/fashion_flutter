@@ -164,41 +164,6 @@ const List<String> sortOptions = [
 // Sort options for filtering
 const List<String> discountOptions = ['20% 0ff', '30% 0ff', '35% 0ff'];
 
-final List<AddressModel> addresses = [
-  AddressModel(
-    username: 'mo maher',
-    phoneNumber: '010984381',
-    street: 'gheaty',
-    city: 'cairo',
-    state: 'halawat',
-    zipCode: '455',
-  ),
-  AddressModel(
-    username: 'mo maher',
-    phoneNumber: '010984381',
-    street: 'gheaty',
-    city: 'cairo',
-    state: 'halawat',
-    zipCode: '455',
-  ),
-  AddressModel(
-    username: 'mo maher',
-    phoneNumber: '010984381',
-    street: 'gheaty',
-    city: 'cairo',
-    state: 'halawat',
-    zipCode: '455',
-  ),
-  AddressModel(
-    username: 'mo maher',
-    phoneNumber: '010984381',
-    street: 'gheaty',
-    city: 'cairo',
-    state: 'halawat',
-    zipCode: '455',
-  ),
-];
-
 final List<OrderModel> orders = [
   OrderModel(
     id: "1",

@@ -1,5 +1,7 @@
 import 'package:fashion_flutter/core/router/routes_names.dart';
+import 'package:fashion_flutter/features/addresses/logic/address_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
@@ -37,7 +39,7 @@ class AddressCard extends StatelessWidget {
               const SizedBox(width: 8),
               Expanded(
                 child: Text(
-                  address.username,
+                  address.name,
                   style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
@@ -45,7 +47,7 @@ class AddressCard extends StatelessWidget {
                 ),
               ),
               Text(
-                address.phoneNumber,
+                address.phone,
                 style: TextStyle(color: Colors.grey.shade600),
               ),
             ],
@@ -61,12 +63,32 @@ class AddressCard extends StatelessWidget {
               const SizedBox(width: 8),
               Expanded(
                 child: Text(
-                  '${address.street}, ${address.city}, ${address.state}\n${address.zipCode}',
+                  '${address.street}, ${address.city}, ${address.governorate}',
                   style: TextStyle(color: Colors.grey.shade700, height: 1.4),
                 ),
               ),
             ],
           ),
+
+          if (address.notes != null && address.notes!.isNotEmpty) ...[
+            const SizedBox(height: 8),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Icon(Icons.note_outlined, size: 20),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    address.notes!,
+                    style: TextStyle(
+                      color: Colors.grey.shade600,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
 
           const SizedBox(height: 16),
 
@@ -75,13 +97,26 @@ class AddressCard extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  context.pushNamed(editAddressView);
+                  context.pushNamed(editAddressView, extra: address);
                 },
                 child: Row(
                   children: [
                     Icon(Icons.edit, color: Colors.black, size: 14),
                     Gap(8),
                     CustomText('Edit'),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 16),
+              GestureDetector(
+                onTap: () {
+                  _showDeleteDialog(context);
+                },
+                child: Row(
+                  children: [
+                    Icon(Icons.delete_outline, color: Colors.red, size: 14),
+                    Gap(8),
+                    CustomText('Delete', color: Colors.red),
                   ],
                 ),
               ),
@@ -97,6 +132,32 @@ class AddressCard extends StatelessWidget {
                 },
               ),
             ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _showDeleteDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: const Text('Delete Address'),
+        content: const Text('Are you sure you want to delete this address?'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(dialogContext),
+            child: const Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.pop(dialogContext);
+              if (address.id != null) {
+                context.read<AddressCubit>().deleteAddress(address.id!);
+              }
+            },
+            style: TextButton.styleFrom(foregroundColor: Colors.red),
+            child: const Text('Delete'),
           ),
         ],
       ),

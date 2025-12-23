@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:fashion_flutter/core/services/api_services.dart';
 import 'package:fashion_flutter/core/services/local_service.dart';
+import 'package:fashion_flutter/features/addresses/data/repo/address_repo.dart';
+import 'package:fashion_flutter/features/addresses/logic/address_cubit.dart';
 import 'package:fashion_flutter/features/auth/data/repos/auth_repo.dart';
 import 'package:fashion_flutter/features/cart/data/repo/cart_repo.dart';
 import 'package:fashion_flutter/features/categories/data/repo/category_repo.dart';
@@ -66,6 +68,10 @@ Future<void> setupServiceLocator() async {
     () => CartRepoImpl(api: getIt<ApiServices>()),
   );
 
+  getIt.registerLazySingleton<AddressRepoImp>(
+    () => AddressRepoImp(getIt<ApiServices>()),
+  );
+
   //cubits
   getIt.registerLazySingleton<FilterCubit>(() => FilterCubit());
   getIt.registerLazySingleton<HomeCubit>(
@@ -73,5 +79,8 @@ Future<void> setupServiceLocator() async {
   );
   getIt.registerLazySingleton<CategoryCubit>(
     () => CategoryCubit()..fetchCategories(),
+  );
+  getIt.registerLazySingleton<AddressCubit>(
+    () => AddressCubit(getIt<AddressRepoImp>()),
   );
 }

@@ -1,4 +1,5 @@
 import 'package:fashion_flutter/core/models/filter_argument_model.dart';
+import 'package:fashion_flutter/features/addresses/data/model/address_model.dart';
 import 'package:fashion_flutter/features/filter/ui/filter_view.dart';
 import 'package:fashion_flutter/features/product_details/ui/product_details_view.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,6 @@ import '../../features/orders/ui/order_details_view.dart';
 import '../../features/orders/ui/rate_order_view.dart';
 import '../../features/checkout/ui/order_placed_view.dart';
 import '../../features/orders/data/models/order_model.dart';
-import '../../core/services/constants.dart';
 
 /// ----------------------
 /// Shared Page Transition
@@ -106,10 +106,13 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: editAddressView,
       name: editAddressView,
-      pageBuilder: (context, state) => _fadeSlidePage(
-        state: state,
-        child: EditAddressView(addressModel: addresses.first),
-      ),
+      pageBuilder: (context, state) {
+        final address = state.extra as AddressModel;
+        return _fadeSlidePage(
+          state: state,
+          child: EditAddressView(addressModel: address),
+        );
+      },
     ),
 
     /// Orders

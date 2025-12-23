@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class CustomLoadingWidget extends StatelessWidget {
-  const CustomLoadingWidget({super.key});
-
+  const CustomLoadingWidget({super.key,  this.size = 30});
+   final double size ;
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+
 
     return Center(
       child: SpinKitWave(
-        size: 20,
+        size: size ,
         duration: Duration(
           milliseconds: 700
         ),
