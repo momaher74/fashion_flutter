@@ -12,8 +12,9 @@ class AddressCubit extends Cubit<AddressState> {
 
   // Get all addresses
   Future<void> getAddresses() async {
+   
     emit(AddressLoading());
-
+     print("Fetching addresses in AddressCubit");
     final result = await repo.getAddresses();
 
     result.fold(
@@ -34,21 +35,22 @@ class AddressCubit extends Cubit<AddressState> {
 
   // Get single address
   Future<void> getAddressById(String id) async {
+    if (isClosed) return;
     emit(AddressLoading());
 
     final result = await repo.getAddressById(id: id);
 
     result.fold(
       (error) {
-        emit(AddressError(error.message));
+        if (!isClosed) emit(AddressError(error.message));
       },
       (response) {
         try {
           final addressData = response['data'];
           final address = AddressModel.fromJson(addressData);
-          emit(AddressSingleLoaded(address));
+          if (!isClosed) emit(AddressSingleLoaded(address));
         } catch (e) {
-          emit(AddressError('Failed to parse address: $e'));
+          if (!isClosed) emit(AddressError('Failed to parse address: $e'));
         }
       },
     );
@@ -56,23 +58,24 @@ class AddressCubit extends Cubit<AddressState> {
 
   // Create address
   Future<void> createAddress(AddressModel address) async {
+    if (isClosed) return;
     emit(AddressActionLoading());
 
     final result = await repo.createAddress(data: address.toJson());
 
     result.fold(
       (error) {
-        emit(AddressError(error.message));
+        if (!isClosed) emit(AddressError(error.message));
       },
       (response) {
         try {
           final addressData = response['data'];
           final newAddress = AddressModel.fromJson(addressData);
           addresses.add(newAddress);
-          emit(AddressActionSuccess('Address added successfully'));
-          emit(AddressLoaded(addresses));
+          if (!isClosed)
+            emit(AddressActionSuccess('Address added successfully'));
         } catch (e) {
-          emit(AddressError('Failed to create address: $e'));
+          if (!isClosed) emit(AddressError('Failed to create address: $e'));
         }
       },
     );
@@ -80,13 +83,14 @@ class AddressCubit extends Cubit<AddressState> {
 
   // Update address
   Future<void> updateAddress(String id, AddressModel address) async {
+    if (isClosed) return;
     emit(AddressActionLoading());
 
     final result = await repo.updateAddress(id: id, data: address.toJson());
 
     result.fold(
       (error) {
-        emit(AddressError(error.message));
+        if (!isClosed) emit(AddressError(error.message));
       },
       (response) {
         try {
@@ -99,10 +103,10 @@ class AddressCubit extends Cubit<AddressState> {
             addresses[index] = updatedAddress;
           }
 
-          emit(AddressActionSuccess('Address updated successfully'));
-          emit(AddressLoaded(addresses));
+          if (!isClosed)
+            emit(AddressActionSuccess('Address updated successfully'));
         } catch (e) {
-          emit(AddressError('Failed to update address: $e'));
+          if (!isClosed) emit(AddressError('Failed to update address: $e'));
         }
       },
     );
@@ -110,18 +114,19 @@ class AddressCubit extends Cubit<AddressState> {
 
   // Delete address
   Future<void> deleteAddress(String id) async {
+    if (isClosed) return;
     emit(AddressActionLoading());
 
     final result = await repo.deleteAddress(id: id);
 
     result.fold(
       (error) {
-        emit(AddressError(error.message));
+        if (!isClosed) emit(AddressError(error.message));
       },
       (response) {
         addresses.removeWhere((a) => a.id == id);
-        emit(AddressActionSuccess('Address deleted successfully'));
-        emit(AddressLoaded(addresses));
+        if (!isClosed)
+          emit(AddressActionSuccess('Address deleted successfully'));
       },
     );
   }

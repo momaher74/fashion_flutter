@@ -41,8 +41,8 @@ class _AddAddressViewState extends State<AddAddressView> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<AddressCubit>(),
+    return BlocProvider.value(
+      value:  getIt<AddressCubit>(),
       child: Scaffold(
         body: BlocListener<AddressCubit, AddressState>(
           listener: (context, state) {

@@ -96,8 +96,16 @@ class AddressCard extends StatelessWidget {
           Row(
             children: [
               GestureDetector(
-                onTap: () {
-                  context.pushNamed(editAddressView, extra: address);
+                onTap: () async {
+                  // Capture the cubit reference before navigation
+                  final addressCubit = context.read<AddressCubit>();
+                  final result = await context.pushNamed(
+                    editAddressView,
+                    extra: address,
+                  );
+                  if (result == true) {
+                    addressCubit.getAddresses();
+                  }
                 },
                 child: Row(
                   children: [
@@ -139,25 +147,60 @@ class AddressCard extends StatelessWidget {
   }
 
   void _showDeleteDialog(BuildContext context) {
+    // Capture the cubit reference before showing the dialog
+    final addressCubit = context.read<AddressCubit>();
+
     showDialog(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: const Text('Delete Address'),
-        content: const Text('Are you sure you want to delete this address?'),
+        backgroundColor: Colors.white,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        title: Row(
+          children: const [
+            Icon(Icons.delete_forever, color: Colors.red),
+            SizedBox(width: 10),
+            Expanded(
+              child: Text(
+                'Delete Address',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
+            ),
+          ],
+        ),
+        content: const Text(
+          'Are you sure you want to delete this address? This action cannot be undone.',
+          style: TextStyle(fontSize: 16),
+        ),
+        actionsPadding: const EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 10,
+        ),
         actions: [
           TextButton(
-            onPressed: () => Navigator.pop(dialogContext),
-            child: const Text('Cancel'),
+            onPressed: () => Navigator.of(dialogContext).pop(),
+            child: const Text('Cancel', style: TextStyle(color: Colors.grey)),
           ),
-          TextButton(
-            onPressed: () {
-              Navigator.pop(dialogContext);
+          ElevatedButton(
+            onPressed: () async {
+              Navigator.of(dialogContext).pop();
               if (address.id != null) {
-                context.read<AddressCubit>().deleteAddress(address.id!);
+                await addressCubit.deleteAddress(address.id!);
+                // Wait a bit for the state to update, then reload
+                Future.delayed(const Duration(milliseconds: 500), () {
+                  if (!addressCubit.isClosed) {
+                    addressCubit.getAddresses();
+                  }
+                });
               }
             },
-            style: TextButton.styleFrom(foregroundColor: Colors.red),
-            child: const Text('Delete'),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.red,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+            ),
+            child: const Text('Delete', style: TextStyle(color: Colors.white)),
           ),
         ],
       ),
