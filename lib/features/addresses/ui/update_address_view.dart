@@ -59,18 +59,12 @@ class _UpdateAddressViewState extends State<EditAddressView> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<AddressCubit>(),
+    return BlocProvider.value(
+      value: getIt<AddressCubit>(),
       child: Scaffold(
         body: BlocListener<AddressCubit, AddressState>(
           listener: (context, state) {
             if (state is AddressActionSuccess) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(state.message),
-                  backgroundColor: Colors.green,
-                ),
-              );
               context.pop(true);
             } else if (state is AddressError) {
               ScaffoldMessenger.of(context).showSnackBar(
@@ -82,7 +76,7 @@ class _UpdateAddressViewState extends State<EditAddressView> {
             }
           },
           child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Form(
               key: _formKey,
               child: Column(

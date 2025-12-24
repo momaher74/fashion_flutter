@@ -3,6 +3,7 @@ import 'package:fashion_flutter/features/discover/ui/manager/discover_cubit.dart
 import 'package:fashion_flutter/features/discover/ui/view/discover_view.dart';
 import 'package:fashion_flutter/features/home/ui/manager/home_cubit.dart';
 import 'package:fashion_flutter/features/home/ui/view/home_view.dart';
+import 'package:fashion_flutter/features/wishlist/ui/manager/wishlist_cubit.dart';
 import 'package:fashion_flutter/features/wishlist/ui/view/whishlist_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,7 +29,12 @@ class _LayoutViewState extends State<LayoutView> {
       child: DiscoverView(),
     ),
     CartView(),
-    WishlistView(),
+    BlocProvider(
+      create: (BuildContext context) {
+        return getIt<WishlistCubit>()..fetchProducts();
+      },
+      child: WishlistView(),
+    ),
     CategoryView(),
   ];
 
@@ -72,7 +78,11 @@ class _LayoutViewState extends State<LayoutView> {
                 GButton(icon: Icons.shopping_cart, text: 'Cart'),
 
                 GButton(icon: Icons.favorite, text: 'Wishlist'),
-                GButton(icon: Icons.category_rounded, text: 'Categories' ,textStyle: TextStyle(fontSize: 14 ,color: Colors.white),),
+                GButton(
+                  icon: Icons.category_rounded,
+                  text: 'Categories',
+                  textStyle: TextStyle(fontSize: 14, color: Colors.white),
+                ),
               ],
             ),
           ),

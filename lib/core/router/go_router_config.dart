@@ -1,11 +1,16 @@
 import 'package:fashion_flutter/core/models/filter_argument_model.dart';
+import 'package:fashion_flutter/core/services/locator.dart';
 import 'package:fashion_flutter/features/addresses/data/model/address_model.dart';
+import 'package:fashion_flutter/features/addresses/logic/address_cubit.dart';
+import 'package:fashion_flutter/features/checkout/ui/checkout_view.dart';
 import 'package:fashion_flutter/features/filter/ui/filter_view.dart';
 import 'package:fashion_flutter/features/product_details/ui/product_details_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import '../../features/auth/ui/view/login_view.dart';
 import '../../features/auth/ui/view/register_view.dart';
+import '../../features/checkout/data/models/checkout_info.dart';
 import '../../features/notification/ui/view/notification_view.dart';
 import 'routes_names.dart';
 import '../../features/splash/splash_view.dart';
@@ -92,8 +97,13 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: myAddressesView,
       name: myAddressesView,
-      pageBuilder: (context, state) =>
-          _fadeSlidePage(state: state, child: const MyAddressesView()),
+      pageBuilder: (context, state) => _fadeSlidePage(
+        state: state,
+        child: BlocProvider.value(
+          value: getIt<AddressCubit>(),
+          child: const MyAddressesView(),
+        ),
+      ),
     ),
 
     GoRoute(
@@ -168,6 +178,19 @@ final GoRouter router = GoRouter(
       name: orderPlacedView,
       pageBuilder: (context, state) =>
           _fadeSlidePage(state: state, child: const OrderPlacedView()),
+    ),
+
+    /// Checkout
+    GoRoute(
+      path: checkoutView,
+      name: checkoutView,
+      pageBuilder: (context, state) {
+        final AddressModel addressModel = state.extra as AddressModel;
+        return _fadeSlidePage(
+          state: state,
+          child: CheckoutView(addressModel: addressModel),
+        );
+      },
     ),
 
     /// Checkout

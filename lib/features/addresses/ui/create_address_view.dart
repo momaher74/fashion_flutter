@@ -41,8 +41,8 @@ class _AddAddressViewState extends State<AddAddressView> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<AddressCubit>(),
+    return BlocProvider.value(
+      value:  getIt<AddressCubit>(),
       child: Scaffold(
         body: BlocListener<AddressCubit, AddressState>(
           listener: (context, state) {
@@ -64,7 +64,7 @@ class _AddAddressViewState extends State<AddAddressView> {
             }
           },
           child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Form(
               key: _formKey,
               child: Column(
